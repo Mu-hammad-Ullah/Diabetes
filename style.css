@@ -1,0 +1,66 @@
+/* style.css - Diabetes Management System */
+:root{
+  --bg-gradient: linear-gradient(135deg,#0f172a 0%, #0b1220 100%);
+  --card-bg: #ffffff;
+  --muted: #6c757d;
+}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f8fafc;
+  color: #0b1720;
+}
+.bg-gradient{
+  background: linear-gradient(90deg, rgba(14,165,233,0.08), rgba(99,102,241,0.06));
+}
+.header-hero{
+  background: var(--bg-gradient);
+}
+.result-card{
+  background: #fff;
+  border-radius: 12px;
+}
+.status-dot{
+  width: 18px;height:18px;border-radius:50%;
+}
+#previewArea img, #previewArea embed{
+  max-width:100%;border-radius:8px;border:1px solid #e9ecef;
+}
+.card{
+  border-radius:12px;
+}
+.card .card-body{
+  padding:1.25rem;
+}
+#food .card{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#food .card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(2,6,23,0.08);
+}
+/* small animations */
+.fade-in{
+  animation: fadeIn .4s ease both;
+}
+@keyframes fadeIn{
+  from{opacity:0; transform: translateY(6px)}
+  to{opacity:1; transform: translateY(0)}
+}
+.list-group-item{
+  border: none; padding-left:0;padding-right:0;
+}
+.toast-body .bi{margin-right:8px}
+
+@media (max-width: 576px){
+  .display-6{font-size:1.6rem}
+}
+
+/* Utility colors for status */
+.status-green{background:#d1fae5}
+.status-yellow{background:#fffbeb}
+.status-red{background:#fff1f2}
+
+/* small accessibility */
+input[type=file]{cursor:pointer}
+
+/* End */
