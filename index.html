@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ডায়াবেটিস ম্যানেজমেন্ট সিস্টেম | Diabetes Management System</title>
-  <meta name="description" content="ডায়াবেটিস রোগীদের জন্য আধুনিক ও সহজ ব্যবস্থাপনা, ক্যালকুলেটর, ট্র্যাকার, পরামর্শ, ও ডাক্তার রেফারেন্স।">
+  <title>Daily Diabetes Care Guide | ডায়াবেটিস কেয়ার গাইড</title>
+  <meta name="description" content="বাংলাদেশি ডায়াবেটিস রোগীদের জন্য দৈনন্দিন কেয়ার, ট্র্যাকার, ক্যালকুলেটর, ডায়েট ও রুটিন।">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
@@ -15,341 +15,198 @@
   <!-- Hero Section -->
   <section class="hero-section py-5 bg-light text-center mb-4">
     <div class="container">
-      <h1 class="display-4 fw-bold mb-3"><i class="bi bi-heart-pulse-fill text-danger"></i> ডায়াবেটিস ম্যানেজমেন্ট সিস্টেম</h1>
-      <p class="lead mb-4">আপনার সুগার, স্বাস্থ্য ও জীবন—সবকিছু এক জায়গায়। সহজ ক্যালকুলেটর, ট্র্যাকার, ও বিশেষজ্ঞ পরামর্শ।</p>
-      <a href="#dashboard" class="btn btn-primary btn-lg"><i class="bi bi-activity"></i> শুরু করুন</a>
+      <h1 class="display-4 fw-bold mb-3"><i class="bi bi-heart-pulse-fill text-danger"></i> Daily Diabetes Care Guide</h1>
+      <p class="lead mb-4">বাংলাদেশি ডায়াবেটিস রোগীদের জন্য সহজ, আধুনিক ও কার্যকর কেয়ার টুলস ও পরামর্শ।</p>
+      <a href="#tracker" class="btn btn-primary btn-lg"><i class="bi bi-activity"></i> শুরু করুন</a>
     </div>
   </section>
 
-  <!-- Info Cards -->
+  <!-- Quick Tips Section -->
   <section class="container mb-4">
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 shadow-sm text-center p-3">
-          <i class="bi bi-calculator display-5 text-primary mb-2"></i>
-          <h5 class="fw-bold">Blood Sugar Calculator</h5>
-          <p class="text-muted">আপনার রক্তের সুগার লেভেল দ্রুত হিসাব করুন ও ঝুঁকি জানুন।</p>
+          <i class="bi bi-droplet-half display-5 text-danger mb-2"></i>
+          <h5 class="fw-bold">Blood Sugar Tracker</h5>
+          <p class="text-muted">ফাস্টিং ও খাবারের পর সুগার দিন, ইতিহাস দেখুন।</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm text-center p-3">
           <i class="bi bi-person-bounding-box display-5 text-success mb-2"></i>
           <h5 class="fw-bold">BMI Calculator</h5>
-          <p class="text-muted">ওজন ও উচ্চতা দিয়ে আপনার BMI ও স্বাস্থ্যঝুঁকি নির্ণয় করুন।</p>
+          <p class="text-muted">ওজন ও উচ্চতা দিয়ে স্বাস্থ্যঝুঁকি জানুন।</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm text-center p-3">
           <i class="bi bi-calendar-check display-5 text-warning mb-2"></i>
-          <h5 class="fw-bold">Daily Tracker</h5>
-          <p class="text-muted">প্রতিদিনের সুগার, খাবার ও ওষুধের তথ্য সংরক্ষণ করুন।</p>
+          <h5 class="fw-bold">Daily Routine Guide</h5>
+          <p class="text-muted">সকাল, দুপুর, রাতে করণীয় গাইড।</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Highlight Box -->
+  <!-- Blood Sugar Tracker Section -->
+  <section class="container mb-4" id="tracker">
+    <div class="card shadow-sm p-4">
+      <h2 class="mb-3"><i class="bi bi-droplet-half text-danger"></i> ব্লাড সুগার ট্র্যাকার</h2>
+      <form id="sugarTrackerForm" class="row g-3">
+        <div class="col-md-4">
+          <label for="fastingInput" class="form-label">ফাস্টিং (mmol/L)</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="fastingInput" required>
+        </div>
+        <div class="col-md-4"></div>
+          <label for="afterMealInput" class="form-label">খাবারের পর (mmol/L)</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="afterMealInput" required>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary w-100">সংরক্ষণ করুন</button>
+        </div>
+      </form>
+      <div id="sugarHistory" class="mt-3"></div>
+    </div>
+  </section>
+
+  <!-- BMI Calculator Section -->
+  <section class="container mb-4">
+    <div class="card shadow-sm p-4">
+      <h2 class="mb-3"><i class="bi bi-person-arms-up text-success"></i> BMI ক্যালকুলেটর</h2>
+      <form id="bmiForm">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="heightInput" class="form-label">উচ্চতা (সেন্টিমিটার)</label>
+            <input type="number" step="1" min="50" class="form-control" id="heightInput" required>
+          </div>
+          <div class="col-md-6">
+            <label for="weightInput" class="form-label">ওজন (কেজি)</label>
+            <input type="number" step="0.1" min="10" class="form-control" id="weightInput" required>
+          </div>
+        </div>
+        <div class="text-end mt-3">
+          <button type="submit" class="btn btn-success">হিসাব করুন</button>
+        </div>
+      </form>
+      <div id="bmiResult" class="mt-3"></div>
+    </div>
+  </section>
+
+  <!-- Daily Routine Guide Section -->
+  <section class="container mb-4">
+    <div class="card shadow-sm p-4">
+      <h2 class="mb-3"><i class="bi bi-clock-history text-info"></i> দৈনন্দিন রুটিন গাইড</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="border rounded p-3 h-100">
+            <h5 class="fw-bold mb-2">সকাল</h5>
+            <ul class="mb-0">
+              <li>ফাস্টিং সুগার চেক করুন</li>
+              <li>হালকা ব্যায়াম (১৫-৩০ মিনিট হাঁটা)</li>
+              <li>পানি পান করুন</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border rounded p-3 h-100">
+            <h5 class="fw-bold mb-2">দুপুর</h5>
+            <ul class="mb-0">
+              <li>সুষম ও পরিমিত খাবার খান</li>
+              <li>সবজি, মাছ, ডাল, ব্রাউন রাইস</li>
+              <li>চিনি ও ফাস্টফুড এড়িয়ে চলুন</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border rounded p-3 h-100">
+            <h5 class="fw-bold mb-2">রাত</h5>
+            <ul class="mb-0">
+              <li>খাবারের ২ ঘন্টা পর সুগার চেক করুন</li>
+              <li>হালকা হাঁটা করুন</li>
+              <li>পর্যাপ্ত ঘুম নিশ্চিত করুন</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diet Section (Bangladesh Focus) -->
+  <section class="container mb-4">
+    <div class="card shadow-sm p-4">
+      <h2 class="mb-3"><i class="bi bi-egg-fried text-warning"></i> ডায়েট গাইড (বাংলাদেশ)</h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="border rounded p-3 h-100 bg-success bg-opacity-10">
+            <h5 class="fw-bold mb-2 text-success">কি খাবেন</h5>
+            <ul class="mb-0">
+              <li>ব্রাউন রাইস, আটার রুটি</li>
+              <li>সবজি (লাউ, শাক, করলা, মিষ্টি কুমড়া)</li>
+              <li>মাছ, ডিম, ডাল</li>
+              <li>বাদাম, দই, ফল (কমলা, আপেল, পেয়ারা)</li>
+              <li>প্রচুর পানি</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="border rounded p-3 h-100 bg-danger bg-opacity-10">
+            <h5 class="fw-bold mb-2 text-danger">কি এড়াবেন</h5>
+            <ul class="mb-0">
+              <li>সাদা চিনি, মিষ্টি, সফট ড্রিংকস</li>
+              <li>সাদা ভাত, পাউরুটি</li>
+              <li>তেলেভাজা ও ফাস্টফুড</li>
+              <li>বেশি কার্ব খাবার</li>
+              <li>অতিরিক্ত লবণ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Section -->
   <section class="container mb-4">
     <div class="alert alert-warning d-flex align-items-center shadow-sm" role="alert">
       <i class="bi bi-exclamation-triangle-fill display-6 me-3"></i>
       <div>
-        <strong>সতর্কতা:</strong> ডায়াবেটিস নিয়ন্ত্রণে রাখুন, যেকোনো অস্বাভাবিক উপসর্গে দ্রুত ডাক্তারের পরামর্শ নিন。
+        <strong>⚠️ গুরুত্বপূর্ণ:</strong> নিয়মিত সুগার চেক না করলে ঝুঁকি বাড়ে। বেশি কার্ব খেলে বিপদ। ডাক্তারের পরামর্শ নিন。
       </div>
     </div>
   </section>
 
-  <!-- Calculators Section -->
-  <section class="container mb-4">
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card shadow-sm p-4">
-          <h4 class="mb-3"><i class="bi bi-droplet-half text-danger"></i> Blood Sugar Calculator</h4>
-          <form id="sugarCalcForm">
-            <div class="mb-3">
-              <label for="sugarInput2" class="form-label">রক্তের সুগার (mmol/L)</label>
-              <input type="number" step="0.1" min="0" class="form-control" id="sugarInput2" required>
-            </div>
-            <button type="submit" class="btn btn-primary">হিসাব করুন</button>
-          </form>
-          <div id="sugarCalcResult" class="mt-3"></div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card shadow-sm p-4">
-          <h4 class="mb-3"><i class="bi bi-person-arms-up text-success"></i> BMI Calculator</h4>
-          <form id="bmiForm">
-            <div class="mb-3">
-              <label for="heightInput" class="form-label">উচ্চতা (সেন্টিমিটার)</label>
-              <input type="number" step="1" min="50" class="form-control" id="heightInput" required>
-            </div>
-            <div class="mb-3">
-              <label for="weightInput" class="form-label">ওজন (কেজি)</label>
-              <input type="number" step="0.1" min="10" class="form-control" id="weightInput" required>
-            </div>
-            <button type="submit" class="btn btn-success">হিসাব করুন</button>
-          </form>
-          <div id="bmiResult" class="mt-3"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Daily Tracker Section -->
+  <!-- Chart/Visual Section -->
   <section class="container mb-4">
     <div class="card shadow-sm p-4">
-      <h4 class="mb-3"><i class="bi bi-journal-check text-info"></i> Daily Tracker</h4>
-      <form id="trackerForm" class="row g-3">
-        <div class="col-md-4">
-          <label for="trackerDate" class="form-label">তারিখ</label>
-          <input type="date" class="form-control" id="trackerDate" required>
-        </div>
-        <div class="col-md-4">
-          <label for="trackerSugar" class="form-label">সুগার (mmol/L)</label>
-          <input type="number" step="0.1" min="0" class="form-control" id="trackerSugar" required>
-        </div>
-        <div class="col-md-4">
-          <label for="trackerNote" class="form-label">নোট/খাবার/ওষুধ</label>
-          <input type="text" class="form-control" id="trackerNote">
-        </div>
-        <div class="col-12 text-end">
-          <button type="submit" class="btn btn-info">সংরক্ষণ করুন</button>
-        </div>
-      </form>
-      <div id="trackerList" class="mt-3"></div>
+      <h2 class="mb-3"><i class="bi bi-bar-chart-line text-primary"></i> সুগার রেঞ্জ চার্ট</h2>
+      <canvas id="sugarRangeChart" height="120"></canvas>
+      <div class="mt-2 small text-muted">স্বাভাবিক: ৪-৮ mmol/L | মাঝারি: ৮-১৪ mmol/L | উচ্চ: ১৪+ mmol/L</div>
     </div>
   </section>
 
-  <main class="container my-5" id="dashboard">
-    <div class="row g-4">
-      <!-- Left Column: Upload & Manual Input -->
-      <div class="col-lg-5">
-        <div class="card shadow-sm p-3 mb-4">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-upload me-2 text-primary"></i>Upload Medical Report</h5>
-            <p class="text-muted small">Accepts images or PDF. Preview shown below. Use extract to simulate reading sugar level.</p>
-            <input class="form-control mb-3" type="file" id="reportInput" accept="image/*,.pdf">
-            <div id="previewArea" class="mb-3"></div>
-            <div class="d-flex gap-2">
-              <button id="simulateExtractBtn" class="btn btn-primary">Simulate Extract</button>
-              <button id="clearFileBtn" class="btn btn-outline-secondary">Clear</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card shadow-sm p-3">
-          <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-pencil-square me-2 text-success"></i>Manual Sugar Input</h5>
-            <p class="text-muted small">Enter blood sugar in mmol/L</p>
-            <div class="input-group mb-3">
-              <input id="sugarInput" type="number" class="form-control" min="0" step="0.1" placeholder="e.g. 7.2">
-              <span class="input-group-text">mmol/L</span>
-            </div>
-            <div class="d-flex gap-2">
-              <button id="analyzeBtn" class="btn btn-success">Analyze</button>
-              <button id="resetBtn" class="btn btn-outline-danger">Reset</button>
-            </div>
-          </div>
-        </div>
+  <!-- Trust & Disclaimer Section -->
+  <section class="container mb-4">
+    <div class="card shadow-sm p-4 bg-light">
+      <div class="d-flex align-items-center mb-2">
+        <i class="bi bi-patch-check-fill text-success display-6 me-2"></i>
+        <h5 class="mb-0">বিশ্বস্ত তথ্য</h5>
       </div>
-
-      <!-- Right Column: Result & Suggestions -->
-      <div class="col-lg-7">
-        <div class="card shadow-sm mb-4 p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="mb-0"><i class="bi bi-speedometer2 me-2 text-info"></i>Result Dashboard</h5>
-            <div>
-              <span class="badge bg-secondary me-2" id="lastUpdated">Not analyzed</span>
-            </div>
-          </div>
-
-          <div class="row mt-3 gx-3 gy-3">
-            <div class="col-md-4">
-              <div class="result-card p-3 text-center rounded shadow-sm">
-                <h6 class="mb-1">Sugar Level</h6>
-                <div class="display-6 fw-bold" id="displayLevel">--</div>
-                <small class="text-muted">mmol/L</small>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="result-card p-3 text-center rounded shadow-sm">
-                <h6 class="mb-1">Status</h6>
-                <div class="h4 fw-semibold" id="statusText">--</div>
-                <div id="statusDot" class="status-dot mx-auto mt-2"></div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="result-card p-3 rounded shadow-sm">
-                <h6 class="mb-1">Quick Advice</h6>
-                <div id="quickAdvice">Use upload or manual input to analyze your sugar level.</div>
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-3">
-          <div>
-            <h6>Personalized Plan</h6>
-            <div id="adviceList" class="list-group list-group-flush"></div>
-          </div>
-        </div>
-
-        <!-- Add after Result Dashboard -->
-        <div class="card shadow-sm mb-4 p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="mb-0"><i class="bi bi-clock-history me-2 text-primary"></i>সাম্প্রতিক রেকর্ড (Last 10 Records)</h5>
-            <button class="btn btn-outline-secondary btn-sm" id="clearHistoryBtn">Clear</button>
-          </div>
-          <div id="historyList" class="mt-3"></div>
-        </div>
-
-        <!-- Chart Section -->
-        <div class="card shadow-sm mb-4 p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="mb-0"><i class="bi bi-graph-up-arrow me-2 text-success"></i>শুগার লেভেল গ্রাফ (Trend Chart)</h5>
-            <button class="btn btn-outline-primary btn-sm" id="downloadChartBtn">Download Chart</button>
-          </div>
-          <canvas id="sugarChart" height="120"></canvas>
-        </div>
-
-        <!-- Print/Download Button -->
-        <div class="mb-4 text-end">
-          <button class="btn btn-danger" id="printBtn"><i class="bi bi-printer"></i> রিপোর্ট প্রিন্ট/ডাউনলোড</button>
-        </div>
-
-        <!-- Bengali Language Toggle -->
-        <div class="mb-4 text-end">
-          <button class="btn btn-outline-dark" id="langToggleBtn">বাংলা / English</button>
-        </div>
-
-        <!-- Reminder Modal Trigger -->
-        <div class="mb-4 text-end">
-          <button class="btn btn-warning" id="reminderBtn"><i class="bi bi-bell"></i> রিমাইন্ডার সেট করুন</button>
-        </div>
-
-        <!-- Reminder Modal -->
-        <div class="modal fade" id="reminderModal" tabindex="-1" aria-labelledby="reminderModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="reminderModalLabel">রিমাইন্ডার সেট করুন</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <label for="reminderTime" class="form-label">সময় নির্বাচন করুন</label>
-                <input type="time" id="reminderTime" class="form-control mb-3">
-                <label for="reminderMsg" class="form-label">মেসেজ</label>
-                <input type="text" id="reminderMsg" class="form-control" placeholder="ওষুধ/চেকআপ...">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
-                <button type="button" class="btn btn-primary" id="saveReminderBtn">সেভ করুন</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card shadow-sm p-3 mb-4">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="mb-0"><i class="bi bi-egg-fried me-2 text-warning"></i>Food Suggestions</h5>
-            <small class="text-muted">Based on predefined dataset</small>
-          </div>
-          <div class="mt-3" id="food"></div>
-        </div>
-
-        <div id="doctors" class="card shadow-sm p-3">
-          <h5 class="mb-2"><i class="bi bi-people-fill me-2 text-primary"></i>ডাক্তার সুপারিশ (BIRDEM, বাংলাদেশ ডায়াবেটিক সমিতি)</h5>
-          <p class="text-muted small">বিশেষজ্ঞ ডাক্তার ও ক্লিনিক (BIRDEM General Hospital, শাহবাগ, ঢাকা)</p>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="card h-100 border-start border-4 border-primary p-3">
-                <div class="card-body">
-                  <h6 class="card-title mb-1">প্রফেসর ডা. মোঃ ফারুক পাঠান</h6>
-                  <p class="mb-1 small text-muted">এন্ডোক্রিনোলজি ও ডায়াবেটোলজি<br>BIRDEM General Hospital</p>
-                  <a href="https://birdembd.org/doctorDetails/13" target="_blank" class="stretched-link text-decoration-none">অ্যাপয়েন্টমেন্ট নিন</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card h-100 border-start border-4 border-success p-3">
-                <div class="card-body">
-                  <h6 class="card-title mb-1">ডা. ফারিয়া আফসানা</h6>
-                  <p class="mb-1 small text-muted">ডায়াবেটিস, থাইরয়েড ও হরমোন বিশেষজ্ঞ<br>BIRDEM General Hospital</p>
-                  <a href="https://birdembd.org/doctorDetails/20" target="_blank" class="stretched-link text-decoration-none">অ্যাপয়েন্টমেন্ট নিন</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card h-100 border-start border-4 border-info p-3">
-                <div class="card-body">
-                  <h6 class="card-title mb-1">প্রফেসর ডা. ফেরোজ আমিন</h6>
-                  <p class="mb-1 small text-muted">ডায়াবেটিস, থাইরয়েড ও হরমোন বিশেষজ্ঞ<br>BIRDEM & IMC</p>
-                  <a href="https://birdembd.org/doctorDetails/24" target="_blank" class="stretched-link text-decoration-none">অ্যাপয়েন্টমেন্ট নিন</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card h-100 border-start border-4 border-warning p-3">
-                <div class="card-body">
-                  <h6 class="card-title mb-1">ডা. তারিন আহমেদ</h6>
-                  <p class="mb-1 small text-muted">এন্ডোক্রিনোলজি ও ডায়াবেটোলজি<br>BIRDEM General Hospital</p>
-                  <a href="https://birdembd.org/doctorDetails/25" target="_blank" class="stretched-link text-decoration-none">অ্যাপয়েন্টমেন্ট নিন</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-3">
-            <strong>ঠিকানা:</strong> ১২২ কাজী নজরুল ইসলাম এভিনিউ, শাহবাগ, ঢাকা ১০০০<br>
-            <strong>ফোন:</strong> <a href="tel:+0241060501">+02 4106 0501-24</a> <br>
-            <strong>ওয়েব:</strong> <a href="https://birdembd.org/doctor" target="_blank">birdembd.org/doctor</a>
-          </div>
-        </div>
-
-        <!-- Reviewed by Doctor Section -->
-        <section class="container mb-4">
-          <div class="card shadow-sm p-4 bg-light">
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-patch-check-fill text-success display-6 me-2"></i>
-              <h5 class="mb-0">বিশেষজ্ঞ দ্বারা পর্যালোচিত</h5>
-            </div>
-            <p class="mb-1">এই ওয়েব অ্যাপটি BIRDEM-এর বিশেষজ্ঞ ডাক্তারদের তথ্য ও পরামর্শের ভিত্তিতে তৈরি।</p>
-            <ul class="mb-1">
-              <li>প্রফেসর ডা. মোঃ ফারুক পাঠান (এন্ডোক্রিনোলজি ও ডায়াবেটোলজি)</li>
-              <li>ডা. ফারিয়া আফসানা (ডায়াবেটিস ও হরমোন বিশেষজ্ঞ)</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- References & Disclaimer -->
-        <section class="container mb-4">
-          <div class="card shadow-sm p-4">
-            <h5 class="mb-2"><i class="bi bi-journal-medical text-primary"></i> রেফারেন্স ও ডিসক্লেইমার</h5>
-            <ul>
-              <li>BIRDEM General Hospital: <a href="https://birdembd.org/doctor" target="_blank">birdembd.org/doctor</a></li>
-              <li>International Diabetes Federation: <a href="https://idf.org/" target="_blank">idf.org</a></li>
-            </ul>
-            <div class="alert alert-secondary mt-3" role="alert">
-              <i class="bi bi-info-circle"></i> এই ওয়েব অ্যাপটি শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন。
-            </div>
-          </div>
-        </section>
-
+      <p class="mb-1">এই ওয়েব অ্যাপের তথ্য গবেষণা ও বিশেষজ্ঞ পরামর্শের ভিত্তিতে।</p>
+      <div class="alert alert-secondary mt-3" role="alert">
+        <i class="bi bi-info-circle"></i> শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন。
       </div>
     </div>
-  </main>
-
-  <!-- Toasts -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
-    <div id="toastContainer"></div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="text-center py-4 mt-5 bg-light">
     <div class="container">
-      <small class="text-muted">&copy; 2026 Diabetes Management — Demo (client-side only)</small>
+      <small class="text-muted">&copy; 2026 Daily Diabetes Care Guide — Client-side only</small>
     </div>
   </footer>
 
   <!-- Bootstrap Bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

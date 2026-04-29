@@ -10,11 +10,13 @@ body {
   color: #0b1720;
   line-height: 1.6;
 }
+.hero-section {
+  background: linear-gradient(90deg, #f8fafc 60%, #e0e7ff 100%);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .bg-gradient{
   background: linear-gradient(90deg, rgba(14,165,233,0.08), rgba(99,102,241,0.06));
-}
-.header-hero{
-  background: var(--bg-gradient);
 }
 .result-card{
   background: #fff;
@@ -56,9 +58,10 @@ body {
 
 @media (max-width: 576px){
   .display-4 { font-size: 2rem; }
-  .display-6{font-size:1.6rem}
   .hero-section { padding-top: 2rem; padding-bottom: 2rem; }
   .card .card-body, .card.p-3, .card.p-4 { padding: 1rem; }
+  .btn-lg, .btn, button { font-size: 1rem; padding: 0.6rem 1.1rem; }
+  h2, h3, h4, h5 { font-size: 1.1rem; }
 }
 
 /* Utility colors for status */
@@ -110,4 +113,8 @@ section, .container, .row, .col-md-4, .col-md-6, .col-12 {
   margin-bottom: 0.5rem !important;
 }
 
+/* Section gap */
+section.container, .container.mb-4 { margin-bottom: 2.5rem !important; }
+/* Chart canvas */
+canvas { max-width: 100%; height: auto; border-radius: 8px; background: #fff; }
 /* End */
