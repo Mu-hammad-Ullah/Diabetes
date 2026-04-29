@@ -121,6 +121,61 @@
           </div>
         </div>
 
+        <!-- Add after Result Dashboard -->
+        <div class="card shadow-sm mb-4 p-3">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0"><i class="bi bi-clock-history me-2 text-primary"></i>সাম্প্রতিক রেকর্ড (Last 10 Records)</h5>
+            <button class="btn btn-outline-secondary btn-sm" id="clearHistoryBtn">Clear</button>
+          </div>
+          <div id="historyList" class="mt-3"></div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="card shadow-sm mb-4 p-3">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0"><i class="bi bi-graph-up-arrow me-2 text-success"></i>শুগার লেভেল গ্রাফ (Trend Chart)</h5>
+            <button class="btn btn-outline-primary btn-sm" id="downloadChartBtn">Download Chart</button>
+          </div>
+          <canvas id="sugarChart" height="120"></canvas>
+        </div>
+
+        <!-- Print/Download Button -->
+        <div class="mb-4 text-end">
+          <button class="btn btn-danger" id="printBtn"><i class="bi bi-printer"></i> রিপোর্ট প্রিন্ট/ডাউনলোড</button>
+        </div>
+
+        <!-- Bengali Language Toggle -->
+        <div class="mb-4 text-end">
+          <button class="btn btn-outline-dark" id="langToggleBtn">বাংলা / English</button>
+        </div>
+
+        <!-- Reminder Modal Trigger -->
+        <div class="mb-4 text-end">
+          <button class="btn btn-warning" id="reminderBtn"><i class="bi bi-bell"></i> রিমাইন্ডার সেট করুন</button>
+        </div>
+
+        <!-- Reminder Modal -->
+        <div class="modal fade" id="reminderModal" tabindex="-1" aria-labelledby="reminderModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reminderModalLabel">রিমাইন্ডার সেট করুন</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <label for="reminderTime" class="form-label">সময় নির্বাচন করুন</label>
+                <input type="time" id="reminderTime" class="form-control mb-3">
+                <label for="reminderMsg" class="form-label">মেসেজ</label>
+                <input type="text" id="reminderMsg" class="form-control" placeholder="ওষুধ/চেকআপ...">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+                <button type="button" class="btn btn-primary" id="saveReminderBtn">সেভ করুন</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="card shadow-sm p-3 mb-4">
           <div class="d-flex align-items-center justify-content-between">
             <h5 class="mb-0"><i class="bi bi-egg-fried me-2 text-warning"></i>Food Suggestions</h5>

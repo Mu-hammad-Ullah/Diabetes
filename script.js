@@ -203,9 +203,156 @@ resetBtn.addEventListener('click', ()=>{
   showToast('Reset complete', 'info');
 });
 
-// On load
+// Chart.js CDN inject
+(function addChartJs(){
+  if(!document.getElementById('chartjs')){
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+    s.id = 'chartjs';
+    document.head.appendChild(s);
+  }
+})();
+
+// Local Storage: Save & Load last 10 records
+function saveRecord(level, status){
+  const records = JSON.parse(localStorage.getItem('sugarRecords')||'[]');
+  const newRec = {level, status, time: new Date().toLocaleString()};
+  records.unshift(newRec);
+  if(records.length>10) records.length=10;
+  localStorage.setItem('sugarRecords', JSON.stringify(records));
+}
+function loadRecords(){
+  return JSON.parse(localStorage.getItem('sugarRecords')||'[]');
+}
+function renderHistory(){
+  const list = document.getElementById('historyList');
+  const records = loadRecords();
+  if(records.length===0){ list.innerHTML = '<div class="text-muted">কোনো রেকর্ড নেই</div>'; return; }
+  list.innerHTML = '<ul class="list-group">'+records.map(r=>`<li class='list-group-item d-flex justify-content-between align-items-center'><span>${r.level} mmol/L (${r.status})</span><span class='text-muted small'>${r.time}</span></li>`).join('')+'</ul>';
+}
+document.getElementById('clearHistoryBtn').onclick = ()=>{ localStorage.removeItem('sugarRecords'); renderHistory(); showToast('রেকর্ড মুছে ফেলা হয়েছে','info'); };
+
+// Chart: Render sugar level trend
+let sugarChart=null;
+function renderChart(){
+  const ctx = document.getElementById('sugarChart').getContext('2d');
+  const records = loadRecords().slice().reverse();
+  const data = {
+    labels: records.map(r=>r.time),
+    datasets: [{
+      label: 'Sugar Level (mmol/L)',
+      data: records.map(r=>r.level),
+      borderColor: '#0d6efd',
+      backgroundColor: 'rgba(13,110,253,0.1)',
+      tension:0.3,
+      fill:true,
+      pointRadius:4
+    }]
+  };
+  if(sugarChart) sugarChart.destroy();
+  sugarChart = new Chart(ctx, {type:'line', data, options:{scales:{y:{beginAtZero:true}}}});
+}
+document.getElementById('downloadChartBtn').onclick = ()=>{
+  if(sugarChart){
+    const a = document.createElement('a');
+    a.href = sugarChart.toBase64Image();
+    a.download = 'sugar_trend_chart.png';
+    a.click();
+  }
+};
+
+// Print/Download Report
+function printReport(){
+  window.print();
+}
+document.getElementById('printBtn').onclick = printReport;
+
+// Bengali Language Toggle
+let isBangla = false;
+const langMap = {
+  'Personal Diabetes Management':'ব্যক্তিগত ডায়াবেটিস ব্যবস্থাপনা',
+  'Upload Medical Report':'মেডিকেল রিপোর্ট আপলোড করুন',
+  'Manual Sugar Input':'ম্যানুয়াল শুগার ইনপুট',
+  'Analyze':'বিশ্লেষণ করুন',
+  'Reset':'রিসেট',
+  'Result Dashboard':'ফলাফল ড্যাশবোর্ড',
+  'Quick Advice':'দ্রুত পরামর্শ',
+  'Personalized Plan':'ব্যক্তিগত পরিকল্পনা',
+  'Food Suggestions':'খাবারের পরামর্শ',
+  'Doctor Recommendations':'ডাক্তার সুপারিশ',
+  'Not analyzed':'বিশ্লেষণ করা হয়নি',
+  'Clear':'পরিষ্কার করুন',
+  'Simulate Extract':'সিমুলেট এক্সট্রাক্ট',
+  'Enter blood sugar in mmol/L':'রক্তের শুগার দিন (mmol/L)',
+  'Status':'অবস্থা',
+  'Sugar Level':'শুগার লেভেল',
+  'mmol/L':'মিমল/এল',
+  'Use upload or manual input to analyze your sugar level.':'আপলোড বা ইনপুট ব্যবহার করুন',
+  'Contact Clinic':'ক্লিনিক যোগাযোগ',
+  'Book Appointment':'অ্যাপয়েন্টমেন্ট নিন',
+  'How it works':'কিভাবে কাজ করে',
+  'Dashboard':'ড্যাশবোর্ড',
+  'Food':'খাবার',
+  'Doctors':'ডাক্তার',
+  'Download Chart':'চার্ট ডাউনলোড',
+  'Print/Download Report':'প্রিন্ট/ডাউনলোড রিপোর্ট',
+  'বাংলা / English':'English / বাংলা',
+  'Set Reminder':'রিমাইন্ডার সেট করুন',
+  'Close':'বন্ধ করুন',
+  'Save':'সেভ করুন',
+  'Time':'সময়',
+  'Message':'মেসেজ',
+  'No records':'কোনো রেকর্ড নেই'
+};
+function toggleLanguage(){
+  isBangla = !isBangla;
+  // For demo: just change some static text
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    el.textContent = isBangla ? (langMap[key]||key) : key;
+  });
+  showToast(isBangla?'বাংলা ভাষা চালু হয়েছে':'English enabled','info');
+}
+document.getElementById('langToggleBtn').onclick = toggleLanguage;
+
+// Reminder System
+let reminderTimeout=null;
+document.getElementById('reminderBtn').onclick = ()=>{
+  const modal = new bootstrap.Modal(document.getElementById('reminderModal'));
+  modal.show();
+};
+document.getElementById('saveReminderBtn').onclick = ()=>{
+  const time = document.getElementById('reminderTime').value;
+  const msg = document.getElementById('reminderMsg').value||'রিমাইন্ডার!';
+  if(!time){ showToast('সময় দিন','danger'); return; }
+  const now = new Date();
+  const [h,m] = time.split(':');
+  const target = new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m,0,0);
+  let delay = target-now; if(delay<0) delay+=24*60*60*1000;
+  if(reminderTimeout) clearTimeout(reminderTimeout);
+  reminderTimeout = setTimeout(()=>{
+    showToast(msg,'success');
+    alert(msg);
+  }, delay);
+  showToast('রিমাইন্ডার সেট হয়েছে','success');
+  bootstrap.Modal.getInstance(document.getElementById('reminderModal')).hide();
+};
+
+// Update: Save record and update chart/history on analyze
+const origUpdateDashboard = updateDashboard;
+updateDashboard = function(level){
+  origUpdateDashboard(level);
+  const res = classifyLevel(level);
+  saveRecord(level, res.status);
+  renderHistory();
+  renderChart();
+};
+
+// On load: render history/chart
 window.addEventListener('DOMContentLoaded', ()=>{
   renderFoodSuggestions();
+  renderHistory();
+  renderChart();
   showToast('Welcome to Diabetes Manager — All client-side demo', 'info');
 });
 
