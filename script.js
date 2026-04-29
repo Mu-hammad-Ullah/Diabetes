@@ -117,23 +117,38 @@ simulateExtractBtn.addEventListener('click', ()=>{
 // Classification logic
 function classifyLevel(val){
   const n = Number(val);
-  if(isNaN(n)) return {status:'Unknown', color:'secondary', advice: ['Enter a valid number']};
-  if(n >= 14) return {status:'High Risk', color:'danger', code:'high', adv:[
-    'Strict diet plan recommended',
-    'Avoid high carb foods and sugary drinks',
-    'Consult a doctor immediately if you have symptoms'
+  if(isNaN(n)) return {status:'Unknown', color:'secondary', advice: ['সঠিক সংখ্যা দিন']};
+  if(n >= 14) return {status:'উচ্চ ঝুঁকি', color:'danger', code:'high', adv:[
+    'খুবই নিয়ন্ত্রিত ডায়েট মেনে চলুন',
+    'চিনি ও উচ্চ কার্ব খাবার সম্পূর্ণ এড়িয়ে চলুন',
+    'প্রচুর পানি পান করুন',
+    'যত দ্রুত সম্ভব ডাক্তারের পরামর্শ নিন',
+    'নিয়মিত রক্তের শুগার পরীক্ষা করুন',
+    'যেকোনো অস্বাভাবিক উপসর্গ হলে দ্রুত চিকিৎসা নিন'
   ]};
-  if(n >= 8) return {status:'Moderate', color:'warning', code:'moderate', adv:[
-    'Control rice and refined carbs',
-    'Adopt a light exercise routine',
-    'Prefer low sugar and high fiber foods'
+  if(n >= 8) return {status:'মাঝারি', color:'warning', code:'moderate', adv:[
+    'চিনি ও মিষ্টি জাতীয় খাবার এড়িয়ে চলুন',
+    'ভাত, রুটি ও আলু কম খান',
+    'সবজি ও আঁশযুক্ত খাবার বেশি খান',
+    'হালকা ব্যায়াম করুন (৩০ মিনিট হাঁটা)',
+    'প্রতিদিন নির্দিষ্ট সময়ে ওষুধ গ্রহণ করুন',
+    'পর্যাপ্ত পানি পান করুন'
   ]};
-  if(n >= 4) return {status:'Normal', color:'success', code:'normal', adv:[
-    'Maintain a balanced diet',
-    '30 minutes walking daily',
-    'Regular monitoring is advised'
+  if(n >= 4) return {status:'স্বাভাবিক', color:'success', code:'normal', adv:[
+    'সুষম ও নিয়মিত খাবার খান',
+    'প্রতিদিন অন্তত ৩০ মিনিট হাঁটুন',
+    'চিনি ও ফাস্টফুড এড়িয়ে চলুন',
+    'পর্যাপ্ত ঘুম ও বিশ্রাম নিন',
+    'নিয়মিত রক্তের শুগার পরীক্ষা করুন',
+    'স্ট্রেস কমান ও মানসিক প্রশান্তি বজায় রাখুন'
   ]};
-  return {status:'Below Normal', color:'info', code:'low', adv:['Consider consulting a provider for interpretation']};
+  return {status:'স্বাভাবিকের নিচে', color:'info', code:'low', adv:[
+    'ডাক্তারের পরামর্শ নিন',
+    'খাবার গ্রহণের সময় ঠিক রাখুন',
+    'প্রচুর পানি পান করুন',
+    'কমপক্ষে ৬-৭ ঘন্টা ঘুমান',
+    'নিজেকে পর্যবেক্ষণে রাখুন'
+  ]};
 }
 
 // Update dashboard
