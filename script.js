@@ -363,11 +363,70 @@ updateDashboard = function(level){
   renderChart();
 };
 
-// On load: render history/chart
-window.addEventListener('DOMContentLoaded', ()=>{
+// Blood Sugar Calculator
+const sugarCalcForm = document.getElementById('sugarCalcForm');
+const sugarCalcResult = document.getElementById('sugarCalcResult');
+sugarCalcForm.onsubmit = function(e) {
+  e.preventDefault();
+  const val = parseFloat(document.getElementById('sugarInput2').value);
+  let msg = '';
+  if (isNaN(val)) msg = '<span class="text-danger">সঠিক সংখ্যা দিন</span>';
+  else if (val >= 14) msg = '<span class="text-danger">উচ্চ ঝুঁকি: দ্রুত ডাক্তারের পরামর্শ নিন</span>';
+  else if (val >= 8) msg = '<span class="text-warning">মাঝারি: নিয়মিত ডায়েট ও ব্যায়াম করুন</span>';
+  else if (val >= 4) msg = '<span class="text-success">স্বাভাবিক: নিয়মিত পর্যবেক্ষণ করুন</span>';
+  else msg = '<span class="text-info">স্বাভাবিকের নিচে: ডাক্তারের পরামর্শ নিন</span>';
+  sugarCalcResult.innerHTML = msg;
+};
+
+// BMI Calculator
+const bmiForm = document.getElementById('bmiForm');
+const bmiResult = document.getElementById('bmiResult');
+bmiForm.onsubmit = function(e) {
+  e.preventDefault();
+  const h = parseFloat(document.getElementById('heightInput').value) / 100;
+  const w = parseFloat(document.getElementById('weightInput').value);
+  if (isNaN(h) || isNaN(w) || h <= 0 || w <= 0) {
+    bmiResult.innerHTML = '<span class="text-danger">সঠিক তথ্য দিন</span>';
+    return;
+  }
+  const bmi = w / (h * h);
+  let msg = `আপনার BMI: <strong>${bmi.toFixed(1)}</strong> - `;
+  if (bmi < 18.5) msg += '<span class="text-info">কম ওজন</span>';
+  else if (bmi < 25) msg += '<span class="text-success">স্বাভাবিক</span>';
+  else if (bmi < 30) msg += '<span class="text-warning">ওভারওয়েট</span>';
+  else msg += '<span class="text-danger">স্থূলতা</span>';
+  bmiResult.innerHTML = msg;
+};
+
+// Daily Tracker
+const trackerForm = document.getElementById('trackerForm');
+const trackerList = document.getElementById('trackerList');
+function loadTracker() {
+  const data = JSON.parse(localStorage.getItem('dailyTracker')||'[]');
+  if (!data.length) {
+    trackerList.innerHTML = '<div class="text-muted">কোনো তথ্য নেই</div>';
+    return;
+  }
+  trackerList.innerHTML = '<ul class="list-group">' + data.map(d => `<li class='list-group-item d-flex justify-content-between align-items-center'><span>${d.date}: ${d.sugar} mmol/L</span><span class='text-muted small'>${d.note||''}</span></li>`).join('') + '</ul>';
+}
+trackerForm.onsubmit = function(e) {
+  e.preventDefault();
+  const date = document.getElementById('trackerDate').value;
+  const sugar = document.getElementById('trackerSugar').value;
+  const note = document.getElementById('trackerNote').value;
+  if (!date || !sugar) return;
+  const data = JSON.parse(localStorage.getItem('dailyTracker')||'[]');
+  data.unshift({date, sugar, note});
+  if (data.length > 30) data.length = 30;
+  localStorage.setItem('dailyTracker', JSON.stringify(data));
+  loadTracker();
+  trackerForm.reset();
+};
+window.addEventListener('DOMContentLoaded', () => {
   renderFoodSuggestions();
   renderHistory();
   renderChart();
+  loadTracker();
   showToast('Welcome to Diabetes Manager — All client-side demo', 'info');
 });
 
