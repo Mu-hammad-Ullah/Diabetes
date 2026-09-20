@@ -240,7 +240,8 @@ returns trigger
 language plpgsql security definer set search_path = public
 as $$
 begin
-  if new.role is distinct from old.role and not public.is_admin() then
+  -- auth.uid() null = API-র বাইরে (SQL Editor / dashboard) → allowed; API দিয়ে শুধু admin
+  if new.role is distinct from old.role and auth.uid() is not null and not public.is_admin() then
     raise exception 'role পরিবর্তনের অনুমতি নেই';
   end if;
   new.updated_at := now();
@@ -259,7 +260,7 @@ returns trigger
 language plpgsql security definer set search_path = public
 as $$
 begin
-  if new.is_verified is distinct from old.is_verified and not public.is_admin() then
+  if new.is_verified is distinct from old.is_verified and auth.uid() is not null and not public.is_admin() then
     raise exception 'ভেরিফিকেশন পরিবর্তনের অনুমতি নেই';
   end if;
   new.updated_at := now();

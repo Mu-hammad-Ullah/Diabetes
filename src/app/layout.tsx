@@ -34,7 +34,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               {locale === 'bn'
                 ? 'শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন।'
                 : 'For educational purposes only. Always consult a doctor for treatment.'}
-              <div className="mt-1">© {new Date().getFullYear()} Diabetes Care</div>
+              <div className="mt-1">
+                © {new Date().getFullYear()} Diabetes Care · All rights reserved · MUHAMMADULLAH ·{' '}
+                <a href="tel:+8801718237713" className="hover:underline">01718237713</a>
+              </div>
             </div>
           </footer>
         </I18nProvider>

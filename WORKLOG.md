@@ -125,3 +125,7 @@ Security:
 - Vercel env var ৪টা যোগ (URL, anon key, SITE_URL, CRON_SECRET)
 - প্রথম Vercel build fail: "No Output Directory named public" — পুরনো static project-এর setting। Fix: `vercel.json`-এ `"framework": "nextjs"` + Project Settings → Build & Deployment → Framework Preset Next.js, Output Directory override বন্ধ
 - বাকি: Supabase-এ Confirm email OFF + Redirect URL; live signup test; admin SQL
+- Live ✔: https://diabetes-zeta-wine.vercel.app (Vercel setting: Framework Next.js, override বন্ধ)
+- Signup-এ "email rate limit exceeded" (free tier ঘণ্টায় ২ email) → Confirm email OFF করতে বলা হয়েছে / Users → Add user (auto-confirm)
+- Admin SQL চালাতে গিয়ে `protect_profile_role` trigger block করেছে (SQL Editor-এ `auth.uid()` null) → trigger fix: `auth.uid() is not null and not is_admin()`; `schema.sql` update + `supabase/fix_role_trigger.sql` (one-off: trigger fix + ullah8701@gmail.com → admin)
+- Footer: "All rights reserved · MUHAMMADULLAH · 01718237713" (`src/app/layout.tsx`)
