@@ -114,3 +114,14 @@ Security:
 - Git commit এখনো করা হয়নি
 
 ---
+
+## 2026-09-20 — Session 2: Supabase setup + GitHub push + Vercel deploy
+
+- Supabase project তৈরি (Singapore): `https://rsfbriwqmzgpvebvnqlh.supabase.co`; `schema.sql` ও `seed_hospitals.sql` চালানো ✔ (৪৮ hospital)
+- Live DB-এর বিপক্ষে যাচাই: anon-এর profiles/readings read denied ✔, `nearby_hospitals` RPC ✔, signup trigger ✔
+- ⚠️ User ভুলে `sb_secret_` key chat-এ দিয়ে ফেলেছিল → rotate করতে বলা হয়েছে; app-এ শুধু publishable key ব্যবহার হয়
+- `.env.local` বসানো (git-ignored)। Test script `.scratch/flowtest.mjs` (git-ignored)
+- GitHub repo খুঁজে পাওয়া: `Mu-hammad-Ullah/Diabetes` (folder ছিল ZIP download, remote ছিল না) → remote add, পুরনো history-র উপরে commit `2f543ea` push
+- Vercel env var ৪টা যোগ (URL, anon key, SITE_URL, CRON_SECRET)
+- প্রথম Vercel build fail: "No Output Directory named public" — পুরনো static project-এর setting। Fix: `vercel.json`-এ `"framework": "nextjs"` + Project Settings → Build & Deployment → Framework Preset Next.js, Output Directory override বন্ধ
+- বাকি: Supabase-এ Confirm email OFF + Redirect URL; live signup test; admin SQL
