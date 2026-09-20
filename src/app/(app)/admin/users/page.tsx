@@ -25,7 +25,7 @@ export default async function AdminUsers({ searchParams }: { searchParams: Promi
     const like = `%${q.replace(/[%_]/g, '')}%`;
     query = query.or(`full_name.ilike.${like},email.ilike.${like},phone.ilike.${like}`);
   }
-  const { data, count } = await query;
+  const { data, count, error } = await query;
   const users = (data ?? []) as Pick<Profile, 'id' | 'full_name' | 'email' | 'phone' | 'role' | 'created_at'>[];
   const pages = Math.max(1, Math.ceil((count ?? 0) / PAGE));
   const link = (p: number) => `/admin/users?${new URLSearchParams({ ...(q && { q }), ...(role && { role }), page: String(p) })}`;
@@ -35,6 +35,7 @@ export default async function AdminUsers({ searchParams }: { searchParams: Promi
     <div>
       <PageHeader title={t('adminUsers')} subtitle={`${(count ?? 0).toLocaleString()} ${t('adminUsers').toLowerCase()}`} />
       {sp.deleted && <div className="mb-4"><Alert kind="success">{t('userDeleted')}</Alert></div>}
+      {error && <div className="mb-4"><Alert kind="error">Database error: {error.message} — <code>supabase/migration_002_admin.sql</code> চালানো হয়েছে?</Alert></div>}
 
       <form className="mb-4 flex flex-wrap gap-2">
         <div className="relative min-w-[12rem] flex-1">

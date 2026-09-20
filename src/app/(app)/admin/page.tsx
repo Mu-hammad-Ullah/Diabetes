@@ -4,7 +4,7 @@ import { getT } from '@/lib/i18n/server';
 import { createClient } from '@/lib/supabase/server';
 import type { AdminStats, Profile } from '@/lib/database.types';
 import { fmtDateTime } from '@/lib/i18n';
-import { PageHeader, Empty } from '@/components/ui';
+import { PageHeader, Empty, Alert } from '@/components/ui';
 
 export const metadata: Metadata = { title: 'Admin' };
 
@@ -16,7 +16,7 @@ function fmtBytes(b: number) {
 export default async function AdminHome() {
   const { t, locale } = await getT();
   const supabase = await createClient();
-  const [{ data: statsData }, { data: recent }] = await Promise.all([
+  const [{ data: statsData, error: statsError }, { data: recent }] = await Promise.all([
     supabase.rpc('admin_stats'),
     supabase.from('profiles').select('id, full_name, email, role, created_at').order('created_at', { ascending: false }).limit(8),
   ]);
@@ -39,6 +39,7 @@ export default async function AdminHome() {
   return (
     <div>
       <PageHeader title={t('adminStatsTitle')} />
+      {statsError && <div className="mb-4"><Alert kind="error">Database error: {statsError.message} — <code>supabase/migration_002_admin.sql</code> চালানো হয়েছে?</Alert></div>}
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {tiles.map((tile) => {
           const inner = (
