@@ -37,6 +37,12 @@
    - Vercel: Environment Variables-এ `SUPABASE_SECRET_KEY` (Type: **Secret**) → Redeploy
    - ⚠️ এই key কখনো chat, GitHub বা browser-এ দেবেন না — এটা দিয়ে RLS bypass হয়। শুধু server-এ থাকে।
 
+### Doctor directory (migration 003)
+
+7d. **SQL Editor** → [`supabase/migration_003_doctor_directory.sql`](supabase/migration_003_doctor_directory.sql) → Run
+7e. **SQL Editor** → [`supabase/seed_doctors.sql`](supabase/seed_doctors.sql) → Run (১৮৯ জন ডায়াবেটিস/হরমোন বিশেষজ্ঞ)
+   (নতুন project-এ 003 `schema.sql`-এর ভেতরেই আছে; seed আলাদা চালাতে হবে)
+
 ### API keys নিন
 
 9. বাম মেনু → **Project Settings** (gear icon) → **API**
@@ -149,6 +155,7 @@ legacy/                 # আগের static site (reference; serve হয় �
 | `/admin/doctors` | ডাক্তার verify/unverify |
 | `/admin/appointments` | সব appointment, status filter/বদল, delete |
 | `/admin/hospitals` | hospital যোগ/edit/delete (map-এ lat/lng) |
+| `/admin/directory` | ডাক্তার তালিকা (directory) যোগ/edit/delete — এরা app user নন, রোগী ফোন করে appointment নেয় |
 | `/admin/announcements` | নোটিশ প্রকাশ (info/সুখবর/সতর্কতা/জরুরি; সবাই/রোগী/ডাক্তার; শেষ তারিখ) — user-দের dashboard-এ দেখায় |
 
 Admin নিজের role বদলাতে/নিজেকে block বা delete করতে পারে না (ভুলে lock-out রোধ)।

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart3, Users, Hospital, Calendar, Megaphone, Stethoscope } from 'lucide-react';
+import { BarChart3, Users, Hospital, Calendar, Megaphone, Stethoscope, BookUser } from 'lucide-react';
 import { useI18n } from '@/lib/i18n/client';
 import type { DictKey } from '@/lib/i18n';
 
@@ -10,6 +10,7 @@ const ITEMS: { href: string; label: DictKey; icon: React.ComponentType<{ classNa
   { href: '/admin', label: 'adminStatsTitle', icon: BarChart3 },
   { href: '/admin/users', label: 'adminUsers', icon: Users },
   { href: '/admin/doctors', label: 'adminDoctors', icon: Stethoscope },
+  { href: '/admin/directory', label: 'adminDirectory', icon: BookUser },
   { href: '/admin/appointments', label: 'adminAppointments', icon: Calendar },
   { href: '/admin/hospitals', label: 'adminHospitals', icon: Hospital },
   { href: '/admin/announcements', label: 'adminAnnouncements', icon: Megaphone },

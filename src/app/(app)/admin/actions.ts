@@ -206,3 +206,49 @@ export async function adminDeleteAnnouncement(id: string) {
   revalidatePath('/dashboard');
   revalidatePath('/doctor');
 }
+
+// ============================================================== DOCTOR DIRECTORY
+const dirSchema = z.object({
+  id: z.string().uuid().optional().or(z.literal('')),
+  name: z.string().trim().min(1).max(160),
+  degrees: z.string().trim().max(600).optional().or(z.literal('')),
+  designation: z.string().trim().max(200).optional().or(z.literal('')),
+  specialty: z.string().trim().min(1).max(120),
+  hospital_name: z.string().trim().min(1).max(160),
+  branch: z.string().trim().max(120).optional().or(z.literal('')),
+  city: z.string().trim().min(1).max(80),
+  phone: z.string().trim().max(60).optional().or(z.literal('')),
+  phone_type: z.string().trim().max(60).optional().or(z.literal('')),
+  source_url: z.string().trim().max(300).optional().or(z.literal('')),
+  is_active: z.preprocess((v) => v === 'on' || v === 'true', z.boolean()),
+});
+
+export async function adminSaveDirectoryDoctor(_prev: AdminState, formData: FormData): Promise<AdminState> {
+  await requireAdmin();
+  const parsed = dirSchema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) return { error: 'error' };
+  const d = parsed.data;
+  const row = {
+    name: d.name, degrees: d.degrees || null, designation: d.designation || null, specialty: d.specialty,
+    hospital_name: d.hospital_name, branch: d.branch || null, city: d.city, phone: d.phone || null,
+    phone_type: d.phone_type || null, source_url: d.source_url || null, is_active: d.is_active, updated_at: new Date().toISOString(),
+  };
+  const supabase = await createClient();
+  const { error } = d.id
+    ? await supabase.from('doctor_directory').update(row).eq('id', d.id)
+    : await supabase.from('doctor_directory').insert(row);
+  if (error) return { error: 'error' };
+  revalidatePath('/admin/directory');
+  revalidatePath('/doctors');
+  if (!d.id) redirect('/admin/directory?saved=1');
+  return { success: 'doctorSaved' };
+}
+
+export async function adminDeleteDirectoryDoctor(id: string) {
+  await requireAdmin();
+  const supabase = await createClient();
+  await supabase.from('doctor_directory').delete().eq('id', id);
+  revalidatePath('/admin/directory');
+  revalidatePath('/doctors');
+  redirect('/admin/directory?deleted=1');
+}

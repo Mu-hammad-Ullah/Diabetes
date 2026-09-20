@@ -39,12 +39,30 @@ export interface Announcement {
   updated_at: string;
 }
 
+export interface DoctorDirectoryEntry {
+  id: string;
+  name: string;
+  degrees: string | null;
+  designation: string | null;
+  specialty: string;
+  hospital_name: string;
+  branch: string | null;
+  city: string;
+  phone: string | null;
+  phone_type: string | null;
+  source_url: string | null;
+  hospital_id: string | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface AdminStats {
   users_total: number; patients: number; doctors_total: number; doctors_verified: number; admins: number; users_7d: number;
   readings_total: number; readings_today: number; readings_7d: number;
   reports_total: number; reports_bytes: number;
   appts_pending: number; appts_accepted: number; appts_total: number;
-  hospitals: number; announcements_active: number;
+  hospitals: number; directory: number; announcements_active: number;
 }
 
 export interface GlucoseReading {

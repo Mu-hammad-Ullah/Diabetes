@@ -31,6 +31,7 @@ export default async function AdminHome() {
     { label: t('statReadings'), value: n(s.readings_total), sub: `${t('statReadingsToday')}: ${n(s.readings_today)}` },
     { label: t('statReports'), value: n(s.reports_total), sub: `${t('statStorage')}: ${fmtBytes(s.reports_bytes ?? 0)} / 1 GB` },
     { label: t('statHospitals'), value: n(s.hospitals), href: '/admin/hospitals' },
+    { label: t('statDirectory'), value: n(s.directory), href: '/admin/directory' },
     { label: t('statAnnouncements'), value: n(s.announcements_active), href: '/admin/announcements' },
   ];
 
