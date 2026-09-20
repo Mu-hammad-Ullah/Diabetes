@@ -144,3 +144,4 @@ Security:
 - `components/announcements.tsx` — রোগীর dashboard ও ডাক্তার home-এ active নোটিশ (audience অনুযায়ী)
 - i18n: ~90টা নতুন key (bn/en)
 - User-এর করণীয়: migration_002 চালানো, secret key তৈরি করে `.env.local` + Vercel-এ `SUPABASE_SECRET_KEY`
+- Hospital data v2: user-এর গবেষণা করা `supabase/hospitals_source.json` (138 entry: BADAS/NHN/Diabetic Association/Government/Private/Diagnostic, phone, source URL)। `supabase/build_hospital_seed.mjs` script: coordinate না থাকা ৮০টা Nominatim দিয়ে geocode (জেলা-শহর থেকে ২০ কিমি-র মধ্যে হলে গ্রহণ, নইলে জেলা-শহরের coordinate), category→type map, NHN Head Office/Ibrahim Medical College বাদ → `seed_hospitals.sql` regenerate (136 row; OSM-verified 58, geocoded 33, district-level 45)। পুরনো BD row delete করে বসায়। Cache: `hospitals_geocode_cache.json`

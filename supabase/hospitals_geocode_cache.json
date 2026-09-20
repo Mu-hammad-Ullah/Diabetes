@@ -1,0 +1,413 @@
+{
+ "Ibrahim Cardiac Hospital & Research Institute, Dhaka, Bangladesh": null,
+ "122 Kazi Nazrul Islam Avenue, Shahbagh, Dhaka 1000, Bangladesh": null,
+ "Dhaka, Bangladesh": {
+  "lat": 23.7643863,
+  "lng": 90.3890144,
+  "display": "ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1215, বাংলাদেশ"
+ },
+ "BIHS General Hospital, Dhaka, Bangladesh": {
+  "lat": 23.7821483,
+  "lng": 90.3526917,
+  "display": "BIHS General Hospital, দারুস সালাম রোড, স্টাফ কোয়ার্টার, দক্ষিণ বিশিল, টোলারবাগ, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1916, বাংলাদেশ"
+ },
+ "Ibrahim General Hospital & DCEC, Dhanmondi, Dhaka, Bangladesh": null,
+ "House 42, Road 10/A, Dhanmondi R/A, Dhaka 1209, Bangladesh": null,
+ "Shaheed Khalek Ibrahim General Hospital, Wari, Dhaka, Bangladesh": null,
+ "4/1 Rankin Street, Wari, Dhaka 1203, Bangladesh": {
+  "lat": 23.7172211,
+  "lng": 90.4163008,
+  "display": "রাঙ্কিন স্ট্রিট, কাপ্তান বাজার, ঠাটারী বাজার, ওয়ারী, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1203, বাংলাদেশ"
+ },
+ "Ibrahim Diabetic Footcare Hospital, Wari, Dhaka, Bangladesh": null,
+ "Dr. Farida Haq Memorial Ibrahim General Hospital, Gazipur, Bangladesh": null,
+ "Chandra, Kaliakoir, Gazipur, Bangladesh": null,
+ "Gazipur, Bangladesh": {
+  "lat": 23.9997166,
+  "lng": 90.4184036,
+  "display": "গাজীপুর, গাজীপুর সদর উপজেলা, গাজীপুর জেলা, ঢাকা বিভাগ, 1701, বাংলাদেশ"
+ },
+ "MPL - Ibrahim General Hospital, Sonargaon, Narayanganj, Bangladesh": null,
+ "Sonakhali, Sonargaon, Narayanganj, Bangladesh": {
+  "lat": 23.654112,
+  "lng": 90.5785399,
+  "display": "Sonakhali Govt. School Playground, ঢাকা–কুমিল্লা মহাসড়ক, মোগরাপাড়া, কৃষ্ণপাড়া, সোনারগাঁও, সোনারগাঁও উপজেলা, নারায়নগঞ্জ জেলা, ঢাকা বিভাগ, 1440, বাংলাদেশ"
+ },
+ "Bandarban Diabetic Association, Bandarban, Bangladesh": null,
+ "Bandarban Sadar, Bandarban, Bangladesh": {
+  "lat": 22.195135,
+  "lng": 92.217638,
+  "display": "Islami Bank Bangladesh Ltd, R161, মধ্যমপাড়া, বান্দরবান, বান্দরবান সদর উপজেলা, বান্দরবান পার্বত্য জেলা, চট্টগ্রাম বিভাগ, বাংলাদেশ"
+ },
+ "Barishal Diabetic Association (Adv Hemayet Uddin Ahmed Diabetic & General Hospital), Barishal, Bangladesh": null,
+ "Bandh Road, Barishal 8200, Bangladesh": {
+  "lat": 22.6917408,
+  "lng": 90.3694143,
+  "display": "বান্দ রোড, বরিশাল, বরিশাল সদর উপজেলা, বরিশাল জেলা, বরিশাল বিভাগ, 8200, বাংলাদেশ"
+ },
+ "Barguna Diabetic Association, Barguna, Bangladesh": null,
+ "Circuit House Road, Barguna 8700, Bangladesh": {
+  "lat": 22.1579412,
+  "lng": 90.1288247,
+  "display": "Circuit House Playground, Barguna Road, বরগুনা, বরগুনা সদর উপজেলা, বরগুনা জেলা, বরিশাল বিভাগ, 8700, বাংলাদেশ"
+ },
+ "Bagerhat Diabetic Association, Bagerhat, Bangladesh": null,
+ "Khan Jahan Ali Road, Shaltola, Bagerhat, Bangladesh": null,
+ "Bagerhat, Bangladesh": {
+  "lat": 22.6554781,
+  "lng": 89.7941813,
+  "display": "বাগেরহাট, বাগেরহাট সদর উপজেলা, বাগেরহাট জেলা, খুলনা বিভাগ, 9300, বাংলাদেশ"
+ },
+ "Bhola Diabetic Association, Bhola, Bangladesh": null,
+ "Masuma Khanam School Road, Bhola Sadar, Bhola 8300, Bangladesh": {
+  "lat": 22.6829941,
+  "lng": 90.6458366,
+  "display": "MASUMA KHANAM GIRLS HIGH SCHOOL, Bazar of khaser hat road, ভোলা, ভোলা সদর উপজেলা, ভোলা জেলা, বরিশাল বিভাগ, 8300, বাংলাদেশ"
+ },
+ "Brahmanbaria Diabetic Association, Brahmanbaria, Bangladesh": null,
+ "1329/1 Kawtali, Brahmanbaria 3400, Bangladesh": null,
+ "Brahmanbaria, Bangladesh": {
+  "lat": 23.9605999,
+  "lng": 91.1190893,
+  "display": "ব্রাহ্মণবাড়িয়া জেলা, চট্টগ্রাম বিভাগ, বাংলাদেশ"
+ },
+ "Chandpur Diabetic Association, Chandpur, Bangladesh": null,
+ "Cumilla Road, Chandpur 3600, Bangladesh": null,
+ "Chandpur, Bangladesh": {
+  "lat": 23.2260417,
+  "lng": 90.655036,
+  "display": "চাঁদপুর, চাঁদপুর সদর উপজেলা, চাঁদপুর জেলা, চট্টগ্রাম বিভাগ, 3602, বাংলাদেশ"
+ },
+ "Chapai Nawabganj Diabetic Association, Chapainawabganj, Bangladesh": null,
+ "63 New Huzrapur, Fire Brigade Office, Chapainawabganj 6300, Bangladesh": null,
+ "Chapainawabganj, Bangladesh": {
+  "lat": 24.5954428,
+  "lng": 88.2707613,
+  "display": "চাঁপাইনবাবগঞ্জ, নবাবগঞ্জ উপজেলা, চাঁপাইনবাবগঞ্জ জেলা, রাজশাহী বিভাগ, 6300, বাংলাদেশ"
+ },
+ "Chuadanga Diabetic Association, Chuadanga, Bangladesh": null,
+ "Eye Hospital Building, Chuadanga 7200, Bangladesh": null,
+ "Chuadanga, Bangladesh": {
+  "lat": 23.6436608,
+  "lng": 88.846448,
+  "display": "চুয়াডাঙ্গা, চুয়াডাঙ্গা সদর উপজেলা, চুয়াডাঙ্গা জেলা, খুলনা বিভাগ, 7200, বাংলাদেশ"
+ },
+ "Cumilla Diabetic Association, Cumilla, Bangladesh": null,
+ "Shahid Solaiman Mustafa Road, Bagichagaon, Cumilla 3500, Bangladesh": null,
+ "Cumilla, Bangladesh": {
+  "lat": 23.4609839,
+  "lng": 91.1812216,
+  "display": "কুমিল্লা, কুমিল্লা আদর্শ সদর উপজেলা, কুমিল্লা জেলা, চট্টগ্রাম বিভাগ, 3500, বাংলাদেশ"
+ },
+ "Diabetic Association Medical College & Hospital, Faridpur, Faridpur, Bangladesh": null,
+ "Moshid Bari Sarok, Jheeltuly, Faridpur 7800, Bangladesh": null,
+ "Faridpur, Bangladesh": {
+  "lat": 23.6040182,
+  "lng": 89.8415542,
+  "display": "ফরিদপুর, ফরিদপুর সদর উপজেলা, ফরিদপুর জেলা, ঢাকা বিভাগ, বাংলাদেশ"
+ },
+ "Rajshahi Diabetic Association General Hospital, Rajshahi, Bangladesh": null,
+ "Station Road, Rajshahi 6000, Bangladesh": {
+  "lat": 24.3742327,
+  "lng": 88.6097252,
+  "display": "Rajshahi Old Bus Terminal, স্টেশন রোড, পদ্মা আবাসিক এলাকা, কাদিরগঞ্জ, রাজশাহী, রাজশাহী জেলা, রাজশাহী বিভাগ, 6207, বাংলাদেশ"
+ },
+ "Sylhet Diabetic Hospital, Sylhet, Bangladesh": null,
+ "Puranlane Road, Sylhet 3100, Bangladesh": null,
+ "Sylhet, Bangladesh": {
+  "lat": 24.7358854,
+  "lng": 91.6852476,
+  "display": "সিলেট বিভাগ, বাংলাদেশ"
+ },
+ "Mymensingh Diabetic Association, Mymensingh, Bangladesh": null,
+ "2 Harikishore Roy Road, Mymensingh, Bangladesh": null,
+ "Mymensingh, Bangladesh": {
+  "lat": 24.8889305,
+  "lng": 90.3845187,
+  "display": "ময়মনসিংহ বিভাগ, বাংলাদেশ"
+ },
+ "Jashore Diabetic Association (Ahad Diabetic & Health Complex), Jashore, Bangladesh": null,
+ "Baliadanga, Jhumjhumpur, Jashore 7400, Bangladesh": null,
+ "Jashore, Bangladesh": {
+  "lat": 23.1665256,
+  "lng": 89.2094419,
+  "display": "যশোর, যশোর জেলা, খুলনা বিভাগ, বাংলাদেশ"
+ },
+ "Dinajpur Diabetic Association, Dinajpur, Bangladesh": null,
+ "Block No. 1, Upashahar, New Town, Dinajpur 5200, Bangladesh": null,
+ "Dinajpur, Bangladesh": {
+  "lat": 25.6260712,
+  "lng": 88.6346228,
+  "display": "দিনাজপুর শহর, দিনাজপুর সদর উপজেলা, দিনাজপুর জেলা, রংপুর বিভাগ, 5216, বাংলাদেশ"
+ },
+ "Gazipur Diabetic Association, Gazipur, Bangladesh": null,
+ "Habibullah Sharani, Post Office Road, Gazipur 1700, Bangladesh": null,
+ "Pabna Diabetic Hospital, Pabna, Bangladesh": {
+  "lat": 24.0310438,
+  "lng": 89.2254419,
+  "display": "CRP- Pabna diabetic shamity, Pabna City Bypass, পাবনা পৌরসভা, পাবনা সদর উপজেলা, পাবনা জেলা, রাজশাহী বিভাগ, 6600, বাংলাদেশ"
+ },
+ "Manikganj Diabetic Hospital, Manikganj, Bangladesh": null,
+ "110/1 Hizuly, Manikganj, Bangladesh": null,
+ "Manikganj, Bangladesh": {
+  "lat": 23.8329836,
+  "lng": 89.9666878,
+  "display": "মানিকগঞ্জ জেলা, ঢাকা বিভাগ, বাংলাদেশ"
+ },
+ "Gopalganj Diabetic Association, Gopalganj, Bangladesh": null,
+ "Old Stadium Pavilion Building, Gopalganj 8100, Bangladesh": null,
+ "Gopalganj, Bangladesh": {
+  "lat": 23.0049937,
+  "lng": 89.8303176,
+  "display": "গোপালগঞ্জ, গোপালগঞ্জ সদর উপজেলা, গোপালগঞ্জ জেলা, ঢাকা বিভাগ, 8100, বাংলাদেশ"
+ },
+ "Jamalpur Diabetic Association, Jamalpur, Bangladesh": null,
+ "Dayamoyee Road, Jamalpur 2000, Bangladesh": null,
+ "Jamalpur, Bangladesh": {
+  "lat": 24.9255866,
+  "lng": 89.9436684,
+  "display": "জামালপুর, জামালপুর সদর উপজেলা, জামালপুর জেলা, ময়মনসিংহ বিভাগ, 2000, বাংলাদেশ"
+ },
+ "Munshiganj Diabetic Association, Munshiganj, Bangladesh": null,
+ "White House, Munshiganj 1500, Bangladesh": null,
+ "Munshiganj, Bangladesh": {
+  "lat": 23.5483797,
+  "lng": 90.5349722,
+  "display": "মুন্সিগঞ্জ, মুন্সীগঞ্জ সদর উপজেলা, মুন্সিগঞ্জ জেলা, ঢাকা বিভাগ, বাংলাদেশ"
+ },
+ "Lakshmipur Diabetic Association, Lakshmipur, Bangladesh": null,
+ "Bhuyan Mansion, Hospital Road, Lakshmipur 3700, Bangladesh": null,
+ "Lakshmipur, Bangladesh": {
+  "lat": 22.9445365,
+  "lng": 90.8276345,
+  "display": "লক্ষ্মীপুর, লক্ষ্মীপুর সদর উপজেলা, লক্ষ্মীপুর জেলা, চট্টগ্রাম বিভাগ, 3700, বাংলাদেশ"
+ },
+ "Noakhali Diabetic Hospital, Noakhali, Bangladesh": null,
+ "Hospital Road, Maijdee Court, Noakhali 3800, Bangladesh": null,
+ "Noakhali, Bangladesh": {
+  "lat": 22.2540799,
+  "lng": 91.1714399,
+  "display": "নোয়াখালী জেলা, চট্টগ্রাম বিভাগ, বাংলাদেশ"
+ },
+ "Rangpur Diabetic Association Hospital, Rangpur, Bangladesh": null,
+ "Rangpur Sadar, Rangpur, Bangladesh": {
+  "lat": 26.3268709,
+  "lng": 88.5501287,
+  "display": "Panchagarh, Rangpur, Bangladesh, পঞ্চগড় শহর, পঞ্চগড় সদর উপজেলা, পঞ্চগড় জেলা, রংপুর বিভাগ, বাংলাদেশ"
+ },
+ "Habiganj Diabetic and General Hospital, Habiganj, Bangladesh": null,
+ "Habiganj Sadar, Habiganj, Bangladesh": {
+  "lat": 24.2598393,
+  "lng": 91.3800685,
+  "display": "C.P. Bangladesh Co., Ltd. (Sylhet Hatchery), হবিগঞ্জ, হবিগঞ্জ সদর উপজেলা, হবিগঞ্জ জেলা, সিলেট বিভাগ, বাংলাদেশ"
+ },
+ "Cox's Bazar Diabetic Hospital, Cox's Bazar, Bangladesh": null,
+ "Cox's Bazar Sadar, Cox's Bazar, Bangladesh": {
+  "lat": 21.4732604,
+  "lng": 91.9689673,
+  "display": "Bangladesh Air Force, কক্সবাজার সদর উপজেলা, কক্সবাজার জেলা, চট্টগ্রাম বিভাগ, বাংলাদেশ"
+ },
+ "Moulvibazar Diabetic Association, Moulvibazar, Bangladesh": null,
+ "Moulvibazar Sadar, Moulvibazar, Bangladesh": {
+  "lat": 24.4412229,
+  "lng": 91.7618736,
+  "display": "Bangladesh Air Force (Radar Unit), Dhaka - Moulvibazar Highway, মৌলভীবাজার, মৌলভীবাজার সদর উপজেলা, মৌলভীবাজার জেলা, সিলেট বিভাগ, 3310, বাংলাদেশ"
+ },
+ "Rajshahi Medical College Hospital, Rajshahi, Bangladesh": null,
+ "Medical College Road, Laxmipur, Rajshahi 6000, Bangladesh": null,
+ "Rajshahi, Bangladesh": {
+  "lat": 24.6285432,
+  "lng": 89.0376862,
+  "display": "রাজশাহী বিভাগ, বাংলাদেশ"
+ },
+ "Mymensingh Medical College Hospital, Mymensingh, Bangladesh": null,
+ "Charpara, Mymensingh 2200, Bangladesh": {
+  "lat": 24.7429948,
+  "lng": 90.4071879,
+  "display": "Charpara By Ln, ময়মনসিংহ, ময়মনসিংহ সদর উপজেলা, ময়মনসিংহ জেলা, ময়মনসিংহ বিভাগ, 2200, বাংলাদেশ"
+ },
+ "Mohammad Ali District Hospital, Bogura, Bogura, Bangladesh": null,
+ "Sherpur Road, Thantania, Bogura, Bangladesh": null,
+ "Bogura, Bangladesh": {
+  "lat": 24.8500662,
+  "lng": 89.3728431,
+  "display": "বগুড়া, বগুড়া জেলা, রাজশাহী বিভাগ, 5800, বাংলাদেশ"
+ },
+ "Shahid Shamsuddin Ahmed District Hospital, Sylhet, Sylhet, Bangladesh": null,
+ "Chowhatta, Sylhet, Bangladesh": {
+  "lat": 24.8991744,
+  "lng": 91.8654694,
+  "display": "Chowhatta Road, South Surma, সিলেট, সিলেট সদর উপজেলা, সিলেট জেলা, সিলেট বিভাগ, 3100, বাংলাদেশ"
+ },
+ "Sher-e-Bangla Medical College Hospital, Barishal, Bangladesh": {
+  "lat": 22.6864652,
+  "lng": 90.3617364,
+  "display": "শের-ই-বাংলা মেডিকেল কলেজ হাসপাতাল, বান্দ রোড, বরিশাল, বরিশাল সদর উপজেলা, বরিশাল জেলা, বরিশাল বিভাগ, 8200, বাংলাদেশ"
+ },
+ "Abdul Malek Ukil Medical College Hospital, Noakhali, Bangladesh": null,
+ "Maijdee, Noakhali 3800, Bangladesh": {
+  "lat": 22.8642019,
+  "lng": 91.100142,
+  "display": "নোয়াখালী, নোয়াখালী সদর উপজেলা, নোয়াখালী জেলা, চট্টগ্রাম বিভাগ, বাংলাদেশ"
+ },
+ "Jashore Medical College Hospital, Jashore, Bangladesh": null,
+ "Jashore Sadar, Jashore 7400, Bangladesh": null,
+ "Pabna Medical College Hospital, Pabna, Bangladesh": null,
+ "Pabna Sadar, Pabna 6600, Bangladesh": {
+  "lat": 24.0008324,
+  "lng": 89.2328254,
+  "display": "Pabna Sadar Post Office, Pabna-Sujanagar Highway, পাবনা পৌরসভা, পাবনা সদর উপজেলা, পাবনা জেলা, রাজশাহী বিভাগ, 6600, বাংলাদেশ"
+ },
+ "Shaheed Syed Nazrul Islam Medical College Hospital, Kishoreganj, Bangladesh": null,
+ "Kishoreganj Sadar, Kishoreganj 2300, Bangladesh": {
+  "lat": 24.4347257,
+  "lng": 90.7657836,
+  "display": "কিশোরগঞ্জ সদর উপজেলা, কিশোরগঞ্জ জেলা, ঢাকা বিভাগ, 2300, বাংলাদেশ"
+ },
+ "Sheikh Sayera Khatun Medical College Hospital, Gopalganj, Bangladesh": null,
+ "Gopalganj Sadar, Gopalganj 8100, Bangladesh": {
+  "lat": 23.0376174,
+  "lng": 89.8605187,
+  "display": "গোপালগঞ্জ সদর উপজেলা, গোপালগঞ্জ জেলা, ঢাকা বিভাগ, বাংলাদেশ"
+ },
+ "Col. Malek Medical College Hospital, Manikganj, Bangladesh": null,
+ "Manikganj Sadar, Manikganj 1800, Bangladesh": {
+  "lat": 23.8835011,
+  "lng": 90.032525,
+  "display": "Bangladesh Jute Research Sub Station, Government office, ঢাকা - আরিচা মহাসড়ক, মানিকগঞ্জ, মানিকগঞ্জ সদর উপজেলা, মানিকগঞ্জ জেলা, ঢাকা বিভাগ, 1800, বাংলাদেশ"
+ },
+ "Sheikh Hasina Medical College Hospital, Jamalpur, Jamalpur, Bangladesh": null,
+ "Jamalpur Sadar, Jamalpur 2000, Bangladesh": {
+  "lat": 24.9088523,
+  "lng": 89.9582693,
+  "display": "Bangladesh rural development board jamalpur sadar, Government office, Jamalpur - Sherpur Highway, জামালপুর, জামালপুর সদর উপজেলা, জামালপুর জেলা, ময়মনসিংহ বিভাগ, 2000, বাংলাদেশ"
+ },
+ "Kushtia Medical College Hospital, Kushtia, Bangladesh": null,
+ "Kushtia Sadar, Kushtia 7000, Bangladesh": null,
+ "Kushtia, Bangladesh": {
+  "lat": 23.8987955,
+  "lng": 89.1295536,
+  "display": "কুষ্টিয়া, মিরপুর, কুষ্টিয়া জেলা, খুলনা বিভাগ, 7001, বাংলাদেশ"
+ },
+ "Square Hospital Gulshan Satellite Centre, Dhaka, Bangladesh": null,
+ "Nafi Tower Level-3, 53 Gulshan Avenue, Gulshan-1, Dhaka 1212, Bangladesh": null,
+ "Square Hospital Uttara Satellite Centre, Dhaka, Bangladesh": null,
+ "Plot 37 Sonargaon Janapath, Sector-7, Uttara, Dhaka 1230, Bangladesh": {
+  "lat": 23.8745138,
+  "lng": 90.4002299,
+  "display": "সোনারগাঁও জনপথ, সেক্টর ৬, উত্তরা, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1276, বাংলাদেশ"
+ },
+ "Square Hospital Mirpur Satellite Centre, Dhaka, Bangladesh": null,
+ "Madhuri Bhaban, Road 3, Section 7, Pallabi, Mirpur, Dhaka 1216, Bangladesh": null,
+ "Square Hospital Sylhet Satellite Centre, Sylhet, Bangladesh": null,
+ "156 Kajalshah, MAG Osmani Medical College Road, Sylhet, Bangladesh": null,
+ "Evercare Hospital Chattogram, Chattogram, Bangladesh": {
+  "lat": 22.4019658,
+  "lng": 91.8497017,
+  "display": "Evercare Hospital Chittagong, Oxygen - Kwaish Road, পাঁচলাইশ, অক্সিজেন, চট্টগ্রাম শহর, চট্টগ্রাম জেলা, চট্টগ্রাম বিভাগ, 4337, বাংলাদেশ"
+ },
+ "LABAID Specialized Hospital Chattogram, Chattogram, Bangladesh": null,
+ "Chattogram, Bangladesh": {
+  "lat": 22.333778,
+  "lng": 91.8344348,
+  "display": "চট্টগ্রাম, চট্টগ্রাম শহর, চট্টগ্রাম জেলা, চট্টগ্রাম বিভাগ, 4000, বাংলাদেশ"
+ },
+ "Prime Medical College Hospital, Rangpur, Bangladesh": null,
+ "Pirjabad, Badarganj Road, Rangpur, Bangladesh": null,
+ "Rangpur, Bangladesh": {
+  "lat": 25.6376135,
+  "lng": 89.0826381,
+  "display": "রংপুর বিভাগ, বাংলাদেশ"
+ },
+ "Community Based Medical College Hospital, Mymensingh, Bangladesh": {
+  "lat": 24.6685119,
+  "lng": 90.4037664,
+  "display": "Community Based Medical College & Hospital, ঢাকা-ময়মনসিংহ মহাসড়ক, ত্রিশাল, ময়মনসিংহ সদর উপজেলা, ময়মনসিংহ জেলা, ময়মনসিংহ বিভাগ, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Dhanmondi, Dhaka, Bangladesh": {
+  "lat": 23.7390158,
+  "lng": 90.3816595,
+  "display": "Popular Diagnostic Centre, ধানমণ্ডি ২, ধানমন্ডি আবাসিক এলাকা, কাঁটাবন, জিগাতলা, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1205, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, English Road, Dhaka, Bangladesh": null,
+ "House 2, English Road, Dhaka, Bangladesh": {
+  "lat": 23.7141183,
+  "lng": 90.4099591,
+  "display": "ইংলিশ রোড, জিন্দাবাহার, মালিটোলা, তাঁতি বাজার, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1100, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Shantinagar, Dhaka, Bangladesh": {
+  "lat": 23.7407649,
+  "lng": 90.4125017,
+  "display": "Popular Diagnostic Centre- Unit 2, শান্তিনগর রোড, চামেলিবাগ, নয়া পল্টন, রাজারবাগ, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1217, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Narayanganj, Narayanganj, Bangladesh": null,
+ "231/4 Bangabandhu Road, Chashara, Narayanganj, Bangladesh": null,
+ "Narayanganj, Bangladesh": {
+  "lat": 23.6236732,
+  "lng": 90.4988075,
+  "display": "নারায়ণগঞ্জ, নারায়ণগঞ্জ সদর উপজেলা, নারায়নগঞ্জ জেলা, ঢাকা বিভাগ, 1400, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Uttara Sector 4, Dhaka, Bangladesh": null,
+ "House 23, Road 7, Sector 4, Uttara, Dhaka 1230, Bangladesh": null,
+ "Popular Diagnostic Centre, Shyamoli, Dhaka, Bangladesh": {
+  "lat": 23.7718031,
+  "lng": 90.3674505,
+  "display": "Popular Diagnostic Centre Limited, 22/7, Block # B, মিরপুর রোড, বিজলি মহল্লা, জেনেভা ক্যাম্প, শ্যামলী, মোহাম্মদপুর, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1207, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Mirpur, Dhaka, Bangladesh": {
+  "lat": 23.7718031,
+  "lng": 90.3674505,
+  "display": "Popular Diagnostic Centre Limited, 22/7, Block # B, মিরপুর রোড, বিজলি মহল্লা, জেনেভা ক্যাম্প, শ্যামলী, মোহাম্মদপুর, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1207, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Savar, Dhaka, Bangladesh": null,
+ "E/22 Talbagh, Anandapur, Savar, Dhaka, Bangladesh": null,
+ "Popular Diagnostic Centre, Badda, Dhaka, Bangladesh": null,
+ "Cha-90/2 North Badda, Pragoti Sarani, Dhaka 1212, Bangladesh": null,
+ "Popular Diagnostic Centre, Gazipur, Gazipur, Bangladesh": null,
+ "Shib Bari More, Joydebpur, Gazipur Sadar, Gazipur, Bangladesh": null,
+ "Popular Diagnostic Centre, Jatrabari, Dhaka, Bangladesh": null,
+ "33 Shahid Faruk Sarak, North Jatrabari, Dhaka 1204, Bangladesh": {
+  "lat": 23.7097888,
+  "lng": 90.4333559,
+  "display": "Shahid Faruk Road, উত্তর যাত্রাবাড়ী, যাত্রাবাড়ী, ঢাকা, ঢাকা মহানগর, ঢাকা জেলা, ঢাকা বিভাগ, 1232, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Uttara Sector 13, Dhaka, Bangladesh": null,
+ "House 41, Garib-E-Newaz Avenue, Sector 13, Uttara, Dhaka, Bangladesh": null,
+ "Popular Diagnostic Centre, Chattogram, Chattogram, Bangladesh": {
+  "lat": 22.688355,
+  "lng": 91.7897534,
+  "display": "Popular Diagnostic Centre, Hospital, Chittagong - Khagrachhari Rd, Bibir Hat, Chattogram, Jashim Uddin Villa Road, ফটিকছড়ি, ফটিকছড়ি উপজেলা, চট্টগ্রাম জেলা, চট্টগ্রাম বিভাগ, 2040, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Noakhali, Noakhali, Bangladesh": null,
+ "House 1222, New Bus Stand, Maijdee Court, Noakhali, Bangladesh": null,
+ "Popular Diagnostic Centre, Rajshahi, Rajshahi, Bangladesh": null,
+ "Holding 617, Laxmipur, Rajshahi, Bangladesh": null,
+ "Popular Diagnostic Centre, Rangpur, Rangpur, Bangladesh": null,
+ "77/1 Road 1, Dhap, Jail Road, Rangpur, Bangladesh": null,
+ "Popular Diagnostic Centre, Dinajpur, Dinajpur, Bangladesh": null,
+ "House 44, Upashahar, Fulbari Bus Stand, Dinajpur, Bangladesh": null,
+ "Popular Diagnostic Centre, Mymensingh, Mymensingh, Bangladesh": {
+  "lat": 24.716817,
+  "lng": 90.9462302,
+  "display": "popular Diagnostic Centre, Netrokona -Madan Road, মদন, মদন উপজেলা, নেত্রকোনা জেলা, ময়মনসিংহ বিভাগ, 2490, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Bogura, Bogura, Bangladesh": null,
+ "12/305 Thanthania Bus Stand, Sherpur Road, Bogura, Bangladesh": null,
+ "Popular Diagnostic Centre, Kushtia, Kushtia, Bangladesh": null,
+ "City Tower, Mir Mosharraf Hossain Road, Court Para, Kushtia, Bangladesh": null,
+ "Popular Diagnostic Centre, Khulna, Khulna, Bangladesh": null,
+ "37 KDA Avenue, Khulna, Bangladesh": {
+  "lat": 22.8170165,
+  "lng": 89.5537006,
+  "display": "KDA Avenue, শেখপাড়া, সোনাডাঙ্গা, খুলনা জেলা, খুলনা বিভাগ, 9208, বাংলাদেশ"
+ },
+ "Popular Diagnostic Centre, Barishal, Barishal, Bangladesh": null,
+ "109 Shahid Nazrul Islam Sarak, South Alekanda, Banglabazar, Barishal, Bangladesh": null,
+ "Barishal, Bangladesh": {
+  "lat": 22.4934035,
+  "lng": 90.3548015,
+  "display": "বরিশাল বিভাগ, বাংলাদেশ"
+ },
+ "20/B K B Fazlul Kader Road, Panchlaish, Chattogram, Bangladesh": null,
+ "252/1 Charpara Road, Mymensingh, Bangladesh": null
+}
