@@ -50,7 +50,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-2 px-4">
+      <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
         <Link href={profile ? (profile.role === 'doctor' ? '/doctor' : '/dashboard') : '/'} className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-bold text-teal-700 sm:gap-2">
           <HeartPulse className="h-6 w-6 shrink-0" />
           <span className="text-[15px] sm:text-base">{t('appName')}</span>

@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Nav profile={profile} />
           <main className="flex-1">{children}</main>
           <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
-            <div className="mx-auto max-w-5xl px-4">
+            <div className="mx-auto max-w-[1400px] px-4">
               {locale === 'bn'
                 ? 'শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন।'
                 : 'For educational purposes only. Always consult a doctor for treatment.'}

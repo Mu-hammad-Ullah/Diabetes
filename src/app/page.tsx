@@ -28,7 +28,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-4 sm:grid-cols-2">
           {features.map(({ icon: Icon, title, desc, color }) => (
             <div key={title} className="card flex gap-4">
