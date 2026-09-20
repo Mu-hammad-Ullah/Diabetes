@@ -30,18 +30,18 @@ export function ReadingsChart({ readings }: { readings: GlucoseReading[] }) {
     <div className="h-64 w-full text-xs sm:h-72">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={points} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
-          <CartesianGrid stroke="#e2e8f0" vertical={false} />
+          <CartesianGrid stroke="var(--color-slate-200)" vertical={false} />
           <XAxis dataKey="ts" type="number" domain={['dataMin', 'dataMax']} scale="time" tickFormatter={dateFmt}
-            tick={{ fill: '#64748b' }} axisLine={{ stroke: '#cbd5e1' }} tickLine={false} minTickGap={24} />
-          <YAxis domain={[0, (max: number) => Math.max(15, Math.ceil(max + 1))]} tick={{ fill: '#64748b' }} axisLine={false} tickLine={false} width={40} />
+            tick={{ fill: 'var(--color-slate-500)' }} axisLine={{ stroke: 'var(--color-slate-300)' }} tickLine={false} minTickGap={24} />
+          <YAxis domain={[0, (max: number) => Math.max(15, Math.ceil(max + 1))]} tick={{ fill: 'var(--color-slate-500)' }} axisLine={false} tickLine={false} width={40} />
           <ReferenceLine y={14} stroke="#ef4444" strokeDasharray="4 4" label={{ value: '14', fill: '#ef4444', fontSize: 10, position: 'right' }} />
           <ReferenceLine y={3.9} stroke="#0ea5e9" strokeDasharray="4 4" label={{ value: '3.9', fill: '#0ea5e9', fontSize: 10, position: 'right' }} />
           <Tooltip
             labelFormatter={(ts) => fmtDateTime(new Date(Number(ts)), locale)}
             formatter={(v, name) => [`${Number(v).toFixed(1)} mmol/L`, READING_TYPE_LABEL[locale][name as ReadingType]]}
-            contentStyle={{ borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 12 }}
+            contentStyle={{ borderRadius: 8, border: '1px solid var(--color-slate-200)', background: 'var(--color-white)', color: 'var(--color-slate-900)', fontSize: 12 }}
           />
-          <Legend formatter={(v) => <span style={{ color: '#334155' }}>{READING_TYPE_LABEL[locale][v as ReadingType]}</span>} iconType="circle" iconSize={8} />
+          <Legend formatter={(v) => <span style={{ color: 'var(--color-slate-700)' }}>{READING_TYPE_LABEL[locale][v as ReadingType]}</span>} iconType="circle" iconSize={8} />
           {present.map((s) => (
             <Line key={s.type} type="monotone" dataKey={s.type} stroke={s.color} strokeWidth={2} connectNulls
               dot={{ r: 4, strokeWidth: 2, stroke: '#fff', fill: s.color }} activeDot={{ r: 6 }} isAnimationActive={false} />

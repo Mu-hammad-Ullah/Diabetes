@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import type { Profile } from '@/lib/database.types';
 import { useI18n } from '@/lib/i18n/client';
+import { ThemeToggle } from './theme-toggle';
 import type { DictKey } from '@/lib/i18n';
 
 type Item = { href: string; label: DictKey; icon: React.ComponentType<{ className?: string }> };
@@ -71,6 +72,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
         </nav>
 
         <div className="hidden items-center gap-1 md:flex">
+          <ThemeToggle />
           {LangSwitch}
           {profile ? (
             <>
@@ -91,6 +93,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
 
         {/* mobile toggle */}
         <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
           {LangSwitch}
           <button className="btn btn-ghost px-2" onClick={() => setOpen((v) => !v)} aria-label="menu" aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

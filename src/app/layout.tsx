@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Noto_Sans_Bengali } from 'next/font/google';
 import './globals.css';
+import { cookies } from 'next/headers';
 import { getLocale } from '@/lib/i18n/server';
 import { I18nProvider } from '@/lib/i18n/client';
 import { getCurrentUser } from '@/lib/supabase/server';
@@ -21,10 +22,19 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [locale, { profile }] = await Promise.all([getLocale(), getCurrentUser()]);
+  const [locale, { profile }, cookieStore] = await Promise.all([getLocale(), getCurrentUser(), cookies()]);
+  const theme = cookieStore.get('theme')?.value; // 'dark' | 'light' | undefined (= system)
 
   return (
-    <html lang={locale} className={`${inter.variable} ${bengali.variable} h-full antialiased`}>
+    <html lang={locale} suppressHydrationWarning
+      className={`${inter.variable} ${bengali.variable} h-full antialiased${theme === 'dark' ? ' dark' : ''}`}>
+      <head>
+        {/* cookie না থাকলে system preference — paint-এর আগেই class বসে, flash হয় না */}
+        {!theme && (
+          <script dangerouslySetInnerHTML={{ __html:
+            "if(matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.classList.add('dark')" }} />
+        )}
+      </head>
       <body className="flex min-h-full flex-col">
         <I18nProvider locale={locale}>
           <Nav profile={profile} />
