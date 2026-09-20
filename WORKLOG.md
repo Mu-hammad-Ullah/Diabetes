@@ -130,3 +130,4 @@ Security:
 - Admin SQL চালাতে গিয়ে `protect_profile_role` trigger block করেছে (SQL Editor-এ `auth.uid()` null) → trigger fix: `auth.uid() is not null and not is_admin()`; `schema.sql` update + `supabase/fix_role_trigger.sql` (one-off: trigger fix + ullah8701@gmail.com → admin)
 - Footer: "All rights reserved · MUHAMMADULLAH · 01718237713" (`src/app/layout.tsx`)
 - Dark/Light mode: nav-এ Sun/Moon toggle (`src/components/theme-toggle.tsx`, `useSyncExternalStore` + MutationObserver), cookie `theme`, cookie না থাকলে system preference (inline script, flash নেই)। Tailwind v4-এ `.dark { --color-* }` palette remap (`globals.css`) — প্রতিটা class-এ `dark:` লাগেনি। Chart-এর রং CSS var-এ।
+- Password field-এ show/hide (👁) icon — `src/components/password-input.tsx`; login, signup, password change তিন জায়গায়

@@ -6,6 +6,7 @@ import { useI18n } from '@/lib/i18n/client';
 import { login, forgotPassword } from '../actions';
 import { SubmitButton } from '@/components/submit-button';
 import { Alert, Field } from '@/components/ui';
+import { PasswordInput } from '@/components/password-input';
 
 export function LoginForm({ next, callbackError }: { next?: string; callbackError?: boolean }) {
   const { t } = useI18n();
@@ -40,7 +41,7 @@ export function LoginForm({ next, callbackError }: { next?: string; callbackErro
           <input name="email" type="email" required autoComplete="email" className="input" />
         </Field>
         <Field label={t('password')}>
-          <input name="password" type="password" required autoComplete="current-password" className="input" />
+          <PasswordInput name="password" required autoComplete="current-password" />
         </Field>
         <SubmitButton className="btn btn-primary w-full" pendingText={t('loading')}>{t('login')}</SubmitButton>
       </form>
