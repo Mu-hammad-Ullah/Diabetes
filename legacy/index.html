@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
   <style>body{font-family:'Poppins', 'Inter', sans-serif;}</style>
 </head>
@@ -57,7 +58,7 @@
           <label for="fastingInput" class="form-label">ফাস্টিং (mmol/L)</label>
           <input type="number" step="0.1" min="0" class="form-control" id="fastingInput" required>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
           <label for="afterMealInput" class="form-label">খাবারের পর (mmol/L)</label>
           <input type="number" step="0.1" min="0" class="form-control" id="afterMealInput" required>
         </div>
@@ -65,7 +66,12 @@
           <button type="submit" class="btn btn-primary w-100">সংরক্ষণ করুন</button>
         </div>
       </form>
-      <div id="sugarHistory" class="mt-3"></div>
+      <div id="sugarAdvice" class="mt-3"></div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <h6 class="mb-0 text-muted">সাম্প্রতিক রেকর্ড</h6>
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="clearHistoryBtn">ইতিহাস মুছুন</button>
+      </div>
+      <div id="sugarHistory" class="mt-2"></div>
     </div>
   </section>
 
@@ -163,13 +169,27 @@
       </div>
     </div>
   </section>
-
+  <!-- Nearby Hospitals Map Section -->
+  <section class="container mb-4">
+    <div class="card shadow-sm p-4">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <div>
+          <h2 class="mb-2"><i class="bi bi-hospital text-danger"></i> হাসপাতালের মানচিত্র</h2>
+          <p class="text-muted mb-0">আপনার আশেপাশের হাসপাতাল ও ক্লিনিক সহজে খুঁজে দেখুন।</p>
+        </div>
+        <button type="button" class="btn btn-outline-danger btn-sm" id="findHospitalsBtn">আমার কাছের খুঁজুন</button>
+      </div>
+      <div id="hospitalMapStatus" class="text-muted small mb-3">মানচিত্র লোড হচ্ছে...</div>
+      <div id="hospitalMap" class="hospital-map"></div>
+      <div id="hospitalList" class="mt-3"></div>
+    </div>
+  </section>
   <!-- Warning Section -->
   <section class="container mb-4">
     <div class="alert alert-warning d-flex align-items-center shadow-sm" role="alert">
       <i class="bi bi-exclamation-triangle-fill display-6 me-3"></i>
       <div>
-        <strong>⚠️ গুরুত্বপূর্ণ:</strong> নিয়মিত সুগার চেক না করলে ঝুঁকি বাড়ে। বেশি কার্ব খেলে বিপদ। ডাক্তারের পরামর্শ নিন。
+        <strong>⚠️ গুরুত্বপূর্ণ:</strong> নিয়মিত সুগার চেক না করলে ঝুঁকি বাড়ে। বেশি কার্ব খেলে বিপদ। ডাক্তারের পরামর্শ নিন।
       </div>
     </div>
   </section>
@@ -179,7 +199,7 @@
     <div class="card shadow-sm p-4">
       <h2 class="mb-3"><i class="bi bi-bar-chart-line text-primary"></i> সুগার রেঞ্জ চার্ট</h2>
       <canvas id="sugarRangeChart" height="120"></canvas>
-      <div class="mt-2 small text-muted">স্বাভাবিক: ৪-৮ mmol/L | মাঝারি: ৮-১৪ mmol/L | উচ্চ: ১৪+ mmol/L</div>
+      <div class="mt-2 small text-muted">ফাস্টিং: স্বাভাবিক ≤৫.৬ | প্রি-ডায়াবেটিস ৫.৭–৬.৯ | ডায়াবেটিস ≥৭.০ mmol/L — খাবারের ২ ঘণ্টা পর: স্বাভাবিক ≤৭.৮ | ≥১১.১ ডায়াবেটিস</div>
     </div>
   </section>
 
@@ -192,7 +212,7 @@
       </div>
       <p class="mb-1">এই ওয়েব অ্যাপের তথ্য গবেষণা ও বিশেষজ্ঞ পরামর্শের ভিত্তিতে।</p>
       <div class="alert alert-secondary mt-3" role="alert">
-        <i class="bi bi-info-circle"></i> শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন。
+        <i class="bi bi-info-circle"></i> শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে। চিকিৎসার জন্য অবশ্যই ডাক্তারের পরামর্শ নিন।
       </div>
     </div>
   </section>
@@ -200,13 +220,14 @@
   <!-- Footer -->
   <footer class="text-center py-4 mt-5 bg-light">
     <div class="container">
-      <small class="text-muted">&copy; 2026 Daily Diabetes Care Guide — Client-side only</small>
+      <small class="text-muted">&copy; 2026 Daily Diabetes Care Guide</small>
     </div>
   </footer>
 
   <!-- Bootstrap Bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
