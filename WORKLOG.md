@@ -131,3 +131,4 @@ Security:
 - Footer: "All rights reserved · MUHAMMADULLAH · 01718237713" (`src/app/layout.tsx`)
 - Dark/Light mode: nav-এ Sun/Moon toggle (`src/components/theme-toggle.tsx`, `useSyncExternalStore` + MutationObserver), cookie `theme`, cookie না থাকলে system preference (inline script, flash নেই)। Tailwind v4-এ `.dark { --color-* }` palette remap (`globals.css`) — প্রতিটা class-এ `dark:` লাগেনি। Chart-এর রং CSS var-এ।
 - Password field-এ show/hide (👁) icon — `src/components/password-input.tsx`; login, signup, password change তিন জায়গায়
+- Responsive যাচাই (Playwright + system Chrome, iPhone SE/13, Pixel 7, iPad, 1366, 1920; light+dark; ১৪টা width × ৫ page overflow measure): **bug** — 768–1023px (tablet)-এ desktop nav overflow (176px) → nav breakpoint `md`→`lg`, 1024–1279-এ compact (px-2, username hidden)। 320px: brand এক লাইনে, unit select column fixed 7.5rem, history table min-w + nowrap। Test script: `.scratch/shots*.mjs`, `widths.mjs` (git-ignored)

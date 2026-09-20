@@ -46,20 +46,22 @@ export function ReadingForm() {
         </select>
       </Field>
 
-      <div className="grid grid-cols-3 gap-3">
-        <div className="col-span-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_7.5rem] gap-3">
+        <div>
           <Field label={t('value')} hint={unit === 'mgdl' ? t('mgdlHint') : undefined}>
             <input name="value" type="number" inputMode="decimal" required
               step={unit === 'mmol' ? 0.1 : 1} min={unit === 'mmol' ? 1 : 18} max={unit === 'mmol' ? 40 : 720}
               className="input" placeholder={unit === 'mmol' ? '5.6' : '100'} />
           </Field>
         </div>
+        <div>
         <Field label={t('unit')}>
-          <select name="unit" className="input" value={unit} onChange={(e) => setUnit(e.target.value as 'mmol' | 'mgdl')}>
+          <select name="unit" className="input px-2" value={unit} onChange={(e) => setUnit(e.target.value as 'mmol' | 'mgdl')}>
             <option value="mmol">mmol/L</option>
             <option value="mgdl">mg/dL</option>
           </select>
         </Field>
+        </div>
       </div>
 
       <Field label={t('measuredAt')}>

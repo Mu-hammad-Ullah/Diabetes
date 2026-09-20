@@ -14,12 +14,12 @@ export function ReadingsList({ readings, readOnly = false }: { readings: Glucose
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full min-w-[22rem] text-sm">
         <thead className="text-left text-xs uppercase tracking-wide text-slate-500">
           <tr>
             <th className="py-2 pr-3">{t('measuredAt')}</th>
             <th className="py-2 pr-3">{t('readingType')}</th>
-            <th className="py-2 pr-3">mmol/L</th>
+            <th className="py-2 pr-3 normal-case">mmol/L</th>
             <th className="py-2 pr-3 hidden sm:table-cell">{t('note')}</th>
             {!readOnly && <th className="py-2" />}
           </tr>
@@ -31,7 +31,7 @@ export function ReadingsList({ readings, readOnly = false }: { readings: Glucose
             return (
               <tr key={r.id}>
                 <td className="whitespace-nowrap py-2 pr-3 text-slate-600">{fmtDateTime(r.measured_at, locale)}</td>
-                <td className="py-2 pr-3">{READING_TYPE_LABEL[locale][r.reading_type]}</td>
+                <td className="whitespace-nowrap py-2 pr-3">{READING_TYPE_LABEL[locale][r.reading_type]}</td>
                 <td className="py-2 pr-3">
                   <span className={`badge ${BADGE_CLASS[c.color]}`} title={severityLabel(c.severity, locale)}>{v.toFixed(1)}</span>
                 </td>

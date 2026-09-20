@@ -51,33 +51,33 @@ export function Nav({ profile }: { profile: Profile | null }) {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-2 px-4">
-        <Link href={profile ? (profile.role === 'doctor' ? '/doctor' : '/dashboard') : '/'} className="flex items-center gap-2 font-bold text-teal-700">
-          <HeartPulse className="h-6 w-6" />
-          <span>{t('appName')}</span>
+        <Link href={profile ? (profile.role === 'doctor' ? '/doctor' : '/dashboard') : '/'} className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-bold text-teal-700 sm:gap-2">
+          <HeartPulse className="h-6 w-6 shrink-0" />
+          <span className="text-[15px] sm:text-base">{t('appName')}</span>
         </Link>
 
         {/* desktop */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {items.map(({ href, label, icon: Icon }) => (
             <Link key={href} href={href}
-              className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ${isActive(href) ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
+              className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-medium xl:px-3 ${isActive(href) ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
               <Icon className="h-4 w-4" />{t(label)}
             </Link>
           ))}
           {profile?.role === 'admin' && (
-            <Link href="/admin/doctors" className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ${isActive('/admin') ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
+            <Link href="/admin/doctors" className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-medium xl:px-3 ${isActive('/admin') ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
               <ShieldCheck className="h-4 w-4" />{t('navAdmin')}
             </Link>
           )}
         </nav>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden shrink-0 items-center gap-0.5 lg:flex">
           <ThemeToggle />
           {LangSwitch}
           {profile ? (
             <>
               <Link href={profile.role === 'doctor' ? '/doctor/profile' : '/profile'} className="btn btn-ghost px-2">
-                <User className="h-4 w-4" /><span className="max-w-[10rem] truncate">{profile.full_name || t('navProfile')}</span>
+                <User className="h-4 w-4" /><span className="hidden max-w-[10rem] truncate xl:inline">{profile.full_name || t('navProfile')}</span>
               </Link>
               <form action="/auth/signout" method="post">
                 <button className="btn btn-ghost px-2" title={t('logout')}><LogOut className="h-4 w-4" /></button>
@@ -92,7 +92,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
         </div>
 
         {/* mobile toggle */}
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-0 sm:gap-1 lg:hidden">
           <ThemeToggle />
           {LangSwitch}
           <button className="btn btn-ghost px-2" onClick={() => setOpen((v) => !v)} aria-label="menu" aria-expanded={open}>
@@ -102,7 +102,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+        <div className="border-t border-slate-200 bg-white px-4 py-3 lg:hidden">
           <nav className="flex flex-col gap-1">
             {items.map(({ href, label, icon: Icon }) => (
               <Link key={href} href={href} onClick={() => setOpen(false)}
