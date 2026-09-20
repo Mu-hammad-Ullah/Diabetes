@@ -333,6 +333,19 @@ export const bn = {
   statDirectory: 'তালিকাভুক্ত ডাক্তার',
   showing: 'দেখানো হচ্ছে',
   directoryNote: 'এই তালিকা হাসপাতালের ওয়েবসাইট থেকে সংগৃহীত; সময়সূচি ও ফি হাসপাতালে ফোন করে জেনে নিন।',
+  // detail pages
+  doctorsAtHospital: 'এই হাসপাতালের ডাক্তার',
+  otherDoctorsHere: 'একই হাসপাতালের অন্য ডাক্তার',
+  viewHospital: 'হাসপাতাল দেখুন',
+  matchingHospitals: 'হাসপাতাল',
+  callHospital: 'হাসপাতালে কল করুন',
+  noDoctorsAtHospital: 'এই হাসপাতালের কোনো ডাক্তার তালিকায় নেই — হাসপাতালে সরাসরি ফোন করুন',
+  hospitalDetails: 'হাসপাতালের তথ্য',
+  viewDoctors: 'ডাক্তার দেখুন',
+  openWebsite: 'ওয়েবসাইট',
+  source: 'তথ্যসূত্র',
+  allHospitals: 'সব হাসপাতাল',
+  appointmentHow: 'অ্যাপয়েন্টমেন্ট: নিচের নম্বরে কল করুন',
 } as const;
 
 export type DictKey = keyof typeof bn;
@@ -655,6 +668,18 @@ export const en: Record<DictKey, string> = {
   statDirectory: 'Directory doctors',
   showing: 'Showing',
   directoryNote: 'Collected from hospital websites; call the hospital to confirm schedule and fees.',
+  doctorsAtHospital: 'Doctors at this hospital',
+  otherDoctorsHere: 'Other doctors at this hospital',
+  viewHospital: 'View hospital',
+  matchingHospitals: 'Hospitals',
+  callHospital: 'Call hospital',
+  noDoctorsAtHospital: 'No listed doctors for this hospital — call the hospital directly',
+  hospitalDetails: 'Hospital details',
+  viewDoctors: 'View doctors',
+  openWebsite: 'Website',
+  source: 'Source',
+  allHospitals: 'All hospitals',
+  appointmentHow: 'Appointment: call the number below',
 };
 
 export const dictionaries = { bn, en } as const;

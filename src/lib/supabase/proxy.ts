@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 const PROTECTED_PREFIXES = [
   '/dashboard', '/readings', '/reports', '/doctors', '/appointments',
-  '/hospitals', '/profile', '/doctor', '/admin',
+  '/hospitals', '/directory', '/profile', '/doctor', '/admin',
 ];
 const AUTH_PAGES = ['/login', '/signup'];
 

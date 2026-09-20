@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useCallback, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { LocateFixed, Loader2, Navigation, Phone, Star } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import type { Hospital, NearbyHospital } from '@/lib/database.types';
@@ -93,6 +94,7 @@ export function HospitalFinder({ initial }: { initial: Hospital[] }) {
   const osmFiltered = useMemo(() => osm.filter((o) => !curated.some((c) => haversine(c.lat, c.lng, o.lat, o.lng) < 0.5)), [osm, curated]);
   const all = useMemo(() => [...curated, ...osmFiltered], [curated, osmFiltered]);
 
+  const mapLabels = useMemo(() => ({ view: t('viewDoctors') }), [t]);
   const typeLabel = (p: MapPoint) => p.type === 'diabetic_center' ? t('typeDiabetic') : p.type === 'clinic' ? t('typeClinic') : t('typeHospital');
 
   return (
@@ -104,7 +106,7 @@ export function HospitalFinder({ initial }: { initial: Hospital[] }) {
         {status && <span className="text-sm text-slate-600">{status}</span>}
       </div>
 
-      <HospitalMap points={all} user={user} />
+      <HospitalMap points={all} user={user} labels={mapLabels} />
 
       <Section title={t('curatedList')} items={curated} typeLabel={typeLabel} t={t} />
       {osmFiltered.length > 0 && <Section title={t('osmResults')} items={osmFiltered} typeLabel={typeLabel} t={t} />}
@@ -121,7 +123,9 @@ function Section({ title, items, typeLabel, t }: { title: string; items: MapPoin
           <li key={p.id} className="flex items-center gap-3 p-3">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5 font-medium">
-                <span className="truncate">{p.name}</span>
+                {p.source === 'curated'
+                  ? <Link href={`/hospitals/${p.id}`} className="truncate hover:text-teal-700 hover:underline">{p.name}</Link>
+                  : <span className="truncate">{p.name}</span>}
                 {p.specialized && <Star className="h-4 w-4 shrink-0 fill-amber-400 text-amber-400" aria-label={t('diabetesSpecialized')} />}
               </div>
               <div className="truncate text-xs text-slate-500">{typeLabel(p)}{p.address ? ` · ${p.address}` : ''}</div>

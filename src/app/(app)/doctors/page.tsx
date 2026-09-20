@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BadgeCheck, MapPin, Phone, Search, Stethoscope } from 'lucide-react';
+import { BadgeCheck, Hospital as HospitalIcon, MapPin, Search, Stethoscope } from 'lucide-react';
 import { getT } from '@/lib/i18n/server';
 import { createClient } from '@/lib/supabase/server';
-import type { DoctorDirectoryEntry, DoctorWithProfile } from '@/lib/database.types';
+import type { DoctorDirectoryEntry, DoctorWithProfile, Hospital } from '@/lib/database.types';
+import { DoctorCard } from '@/components/doctor-card';
 import { PageHeader, Empty } from '@/components/ui';
 
 export const metadata: Metadata = { title: 'Doctors' };
@@ -29,10 +30,18 @@ export default async function DoctorsPage({ searchParams }: { searchParams: Prom
     dirQ = dirQ.or(`name.ilike.${like},hospital_name.ilike.${like},degrees.ilike.${like},designation.ilike.${like}`);
   }
 
-  const [regRes, dirRes, cityRes] = await Promise.all([
+  // 3) search-এ হাসপাতালও মিলবে
+  let hospQ = q
+    ? supabase.from('hospitals').select('id, name, name_bn, city, type, phone').or(`name.ilike.%${q.replace(/[%_]/g, '')}%,name_bn.ilike.%${q.replace(/[%_]/g, '')}%`).limit(12)
+    : null;
+  if (hospQ && city) hospQ = hospQ.eq('city', city);
+
+  const [regRes, dirRes, cityRes, hospRes] = await Promise.all([
     regQ, dirQ,
     supabase.from('doctor_directory').select('city').eq('is_active', true),
+    hospQ ?? Promise.resolve({ data: [] as never[] }),
   ]);
+  const hospitals = (hospRes.data ?? []) as Pick<Hospital, 'id' | 'name' | 'name_bn' | 'city' | 'type' | 'phone'>[];
   const registered = (regRes.data ?? []) as DoctorWithProfile[];
   const directory = (dirRes.data ?? []) as DoctorDirectoryEntry[];
   const total = dirRes.count ?? 0;
@@ -58,11 +67,32 @@ export default async function DoctorsPage({ searchParams }: { searchParams: Prom
         <button className="btn btn-secondary">{t('search')}</button>
       </form>
 
+      {/* matching hospitals (search only) */}
+      {hospitals.length > 0 && (
+        <section>
+          <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><HospitalIcon className="h-4 w-4" />{t('matchingHospitals')} · {hospitals.length}</h2>
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {hospitals.map((h) => (
+              <li key={h.id} className="min-w-0">
+                <Link href={`/hospitals/${h.id}`} className="card flex items-center gap-3 py-3 hover:ring-teal-300">
+                  <HospitalIcon className="h-5 w-5 shrink-0 text-teal-600" />
+                  <div className="min-w-0">
+                    <div className="truncate font-medium">{h.name}</div>
+                    <div className="text-xs text-slate-500">{h.city}{h.phone ? ` · ${h.phone}` : ''}</div>
+                  </div>
+                  <span className="ml-auto shrink-0 whitespace-nowrap text-xs font-medium text-teal-700">{t('viewDoctors')} →</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {/* registered doctors */}
       {registered.length > 0 && (
         <section>
           <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-teal-700"><BadgeCheck className="h-4 w-4" />{t('registeredDoctors')}</h2>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {registered.map((d) => (
               <li key={d.id}>
                 <Link href={`/doctors/${d.id}`} className="card block h-full ring-teal-200 hover:ring-teal-400">
@@ -89,27 +119,7 @@ export default async function DoctorsPage({ searchParams }: { searchParams: Prom
           <p className="text-xs text-slate-500">{t('directoryNote')}</p>
         </div>
         {directory.length ? (
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {directory.map((d) => (
-              <li key={d.id} className="card flex flex-col gap-2 py-4">
-                <div>
-                  <div className="font-semibold leading-snug">{d.name}</div>
-                  {d.designation && <div className="text-xs text-slate-500">{d.designation}</div>}
-                  {d.degrees && <div className="mt-1 line-clamp-2 text-xs text-slate-600" title={d.degrees}>{d.degrees}</div>}
-                </div>
-                <div className="flex items-start gap-1.5 text-sm text-slate-600">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                  <span>{d.hospital_name.toLowerCase().endsWith(d.city.toLowerCase()) ? d.hospital_name : `${d.hospital_name}, ${d.city}`}</span>
-                </div>
-                {d.phone && (
-                  <a href={`tel:${d.phone.replace(/[^\d+]/g, '')}`} className="btn btn-secondary mt-auto w-full justify-start text-teal-700">
-                    <Phone className="h-4 w-4" />{d.phone}
-                    {d.phone_type && <span className="ml-auto text-xs font-normal text-slate-400">{d.phone_type}</span>}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{directory.map((d) => <DoctorCard key={d.id} d={d} />)}</ul>
         ) : <Empty text={t('noDirectory')} />}
 
         {pages > 1 && (
@@ -121,7 +131,8 @@ export default async function DoctorsPage({ searchParams }: { searchParams: Prom
         )}
       </section>
 
-      {registered.length === 0 && directory.length === 0 && <Empty text={t('noDoctors')} />}
+      {registered.length === 0 && directory.length === 0 && hospitals.length === 0 && <Empty text={t('noDoctors')} />}
+      <p className="text-center text-sm"><Link href="/hospitals" className="text-teal-700 hover:underline">{t('allHospitals')} →</Link></p>
     </div>
   );
 }

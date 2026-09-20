@@ -21,7 +21,7 @@ function esc(s: string) {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
 }
 
-export function HospitalMap({ points, user }: { points: MapPoint[]; user: { lat: number; lng: number } | null }) {
+export function HospitalMap({ points, user, labels }: { points: MapPoint[]; user: { lat: number; lng: number } | null; labels: { view: string } }) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -41,7 +41,7 @@ export function HospitalMap({ points, user }: { points: MapPoint[]; user: { lat:
     points.forEach((p) => {
       const icon = p.source === 'osm' ? ICON_OSM : p.specialized ? ICON_SPECIAL : ICON_HOSPITAL;
       L.marker([p.lat, p.lng], { icon }).addTo(layer.current!)
-        .bindPopup(`<strong>${esc(p.name)}</strong>${p.address ? `<br><span style="color:#64748b">${esc(p.address)}</span>` : ''}${p.distance_km != null ? `<br>${p.distance_km.toFixed(1)} km` : ''}`);
+        .bindPopup(`<strong>${esc(p.name)}</strong>${p.address ? `<br><span style="color:#64748b">${esc(p.address)}</span>` : ''}${p.distance_km != null ? `<br>${p.distance_km.toFixed(1)} km` : ''}${p.source === 'curated' ? `<br><a href="/hospitals/${p.id}" style="color:#0d9488;font-weight:600">${labels.view} →</a>` : ''}`);
     });
 
     if (user) {
@@ -51,7 +51,7 @@ export function HospitalMap({ points, user }: { points: MapPoint[]; user: { lat:
       const bounds = L.latLngBounds([[user.lat, user.lng], ...near.map((p) => [p.lat, p.lng] as [number, number])]);
       map.current.fitBounds(bounds.pad(0.2), { maxZoom: 14 });
     }
-  }, [points, user]);
+  }, [points, user, labels]);
 
   return <div ref={el} className="h-72 w-full overflow-hidden rounded-xl ring-1 ring-slate-200 sm:h-96" />;
 }
