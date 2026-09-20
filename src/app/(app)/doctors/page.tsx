@@ -99,7 +99,7 @@ export default async function DoctorsPage({ searchParams }: { searchParams: Prom
                 </div>
                 <div className="flex items-start gap-1.5 text-sm text-slate-600">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                  <span>{d.hospital_name}, {d.city}</span>
+                  <span>{d.hospital_name.toLowerCase().endsWith(d.city.toLowerCase()) ? d.hospital_name : `${d.hospital_name}, ${d.city}`}</span>
                 </div>
                 {d.phone && (
                   <a href={`tel:${d.phone.replace(/[^\d+]/g, '')}`} className="btn btn-secondary mt-auto w-full justify-start text-teal-700">
