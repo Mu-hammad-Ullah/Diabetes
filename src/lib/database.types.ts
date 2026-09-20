@@ -20,8 +20,31 @@ export interface Profile {
   height_cm: number | null;
   weight_kg: number | null;
   locale: Locale;
+  email: string | null;
   created_at: string;
   updated_at: string;
+}
+
+export interface Announcement {
+  id: string;
+  title: string;
+  body: string;
+  level: 'info' | 'success' | 'warning' | 'danger';
+  audience: 'all' | 'patient' | 'doctor';
+  is_active: boolean;
+  starts_at: string;
+  ends_at: string | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AdminStats {
+  users_total: number; patients: number; doctors_total: number; doctors_verified: number; admins: number; users_7d: number;
+  readings_total: number; readings_today: number; readings_7d: number;
+  reports_total: number; reports_bytes: number;
+  appts_pending: number; appts_accepted: number; appts_total: number;
+  hospitals: number; announcements_active: number;
 }
 
 export interface GlucoseReading {

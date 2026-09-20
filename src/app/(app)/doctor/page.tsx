@@ -8,6 +8,7 @@ import { createClient, getCurrentUser } from '@/lib/supabase/server';
 import type { Appointment, Doctor } from '@/lib/database.types';
 import { SLOT_KEYS } from '@/lib/days';
 import { PageHeader, Alert, Empty, StatusBadge } from '@/components/ui';
+import { Announcements } from '@/components/announcements';
 
 export const metadata: Metadata = { title: 'Doctor panel' };
 
@@ -37,6 +38,7 @@ export default async function DoctorHome() {
         action={<Link href="/doctor/profile" className="btn btn-secondary"><UserCog className="h-4 w-4" />{t('doctorProfile')}</Link>} />
 
       {doctor && !doctor.is_verified && <Alert kind="warning">{t('verificationPending')}</Alert>}
+      <Announcements role="doctor" />
 
       <div className="grid grid-cols-3 gap-3">
         <div className="card py-4"><div className="text-xs text-slate-500">{t('pendingRequests')}</div><div className="text-2xl font-bold">{pending.length}</div></div>

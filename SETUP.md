@@ -26,6 +26,17 @@
    - Testing-এর সময় **Confirm email** বন্ধ রাখতে পারেন (signup করলেই login হয়ে যাবে)
    - Live-এ গেলে চালু করুন। Free tier-এ ঘণ্টায় ২টা email পাঠানো যায় — বেশি user হলে **SMTP Settings**-এ নিজের SMTP (যেমন Resend, Brevo — free) বসাতে হবে
 
+### Super admin (migration 002)
+
+7b. **SQL Editor** → **New query** → [`supabase/migration_002_admin.sql`](supabase/migration_002_admin.sql) paste → **Run**
+   (নতুন project-এ `schema.sql`-এর ভেতরেই এটা আছে, আলাদা চালাতে হবে না)
+
+7c. Admin panel থেকে password reset / block / delete করতে **secret key** লাগে:
+   **Project Settings → API Keys → Secret keys → Create new** → নাম `server` → key copy করুন (`sb_secret_...`)
+   - Local: `.env.local`-এ `SUPABASE_SECRET_KEY=sb_secret_...`
+   - Vercel: Environment Variables-এ `SUPABASE_SECRET_KEY` (Type: **Secret**) → Redeploy
+   - ⚠️ এই key কখনো chat, GitHub বা browser-এ দেবেন না — এটা দিয়ে RLS bypass হয়। শুধু server-এ থাকে।
+
 ### API keys নিন
 
 9. বাম মেনু → **Project Settings** (gear icon) → **API**
@@ -128,6 +139,19 @@ src/
     auth/callback, auth/signout, api/locale, api/cron/keepalive
 legacy/                 # আগের static site (reference; serve হয় না)
 ```
+
+## Admin panel (`/admin`)
+
+| Page | কী করা যায় |
+|---|---|
+| `/admin` | সারসংক্ষেপ: user, reading, report, storage, appointment, hospital সংখ্যা; নতুন user |
+| `/admin/users` | সব user খোঁজা (নাম/ইমেইল/ফোন), role filter; user page-এ: নাম/ফোন edit, **role বদল**, **নতুন password set**, **reset link পাঠানো**, **block/unblock**, **delete** (সব data সহ), user-এর reading/report দেখা |
+| `/admin/doctors` | ডাক্তার verify/unverify |
+| `/admin/appointments` | সব appointment, status filter/বদল, delete |
+| `/admin/hospitals` | hospital যোগ/edit/delete (map-এ lat/lng) |
+| `/admin/announcements` | নোটিশ প্রকাশ (info/সুখবর/সতর্কতা/জরুরি; সবাই/রোগী/ডাক্তার; শেষ তারিখ) — user-দের dashboard-এ দেখায় |
+
+Admin নিজের role বদলাতে/নিজেকে block বা delete করতে পারে না (ভুলে lock-out রোধ)।
 
 ## Security note
 

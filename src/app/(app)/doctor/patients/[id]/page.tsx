@@ -41,7 +41,7 @@ export default async function PatientPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="space-y-6">
-      <PageHeader title={patient.full_name} backHref="/doctor/appointments"
+      <PageHeader title={patient.full_name} backHref={profile.role === 'admin' ? `/admin/users/${id}` : "/doctor/appointments"}
         subtitle={[patient.phone, age != null ? `${age}y` : null, patient.gender ? t(patient.gender) : null, t(DT[patient.diabetes_type]), patient.diagnosed_year ? `${t('diagnosedYear')}: ${patient.diagnosed_year}` : null].filter(Boolean).join(' · ')} />
 
       {readings.length === 0 && reports.length === 0 && <Alert kind="info">{t('none')}</Alert>}

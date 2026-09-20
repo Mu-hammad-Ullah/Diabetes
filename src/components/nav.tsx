@@ -65,7 +65,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
             </Link>
           ))}
           {profile?.role === 'admin' && (
-            <Link href="/admin/doctors" className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-medium xl:px-3 ${isActive('/admin') ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
+            <Link href="/admin" className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-medium xl:px-3 ${isActive('/admin') ? 'bg-teal-50 text-teal-700' : 'text-slate-600 hover:bg-slate-100'}`}>
               <ShieldCheck className="h-4 w-4" />{t('navAdmin')}
             </Link>
           )}
@@ -111,7 +111,7 @@ export function Nav({ profile }: { profile: Profile | null }) {
               </Link>
             ))}
             {profile?.role === 'admin' && (
-              <Link href="/admin/doctors" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700">
+              <Link href="/admin" onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700">
                 <ShieldCheck className="h-4 w-4" />{t('navAdmin')}
               </Link>
             )}

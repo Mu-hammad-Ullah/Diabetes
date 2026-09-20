@@ -9,6 +9,7 @@ import type { Appointment, GlucoseReading, Report } from '@/lib/database.types';
 import { BADGE_CLASS, classify, READING_TYPE_LABEL } from '@/lib/glucose';
 import { GlucoseAdvice } from '@/components/glucose-advice';
 import { StatusBadge, Empty } from '@/components/ui';
+import { Announcements } from '@/components/announcements';
 
 export const metadata: Metadata = { title: 'Dashboard' };
 
@@ -60,6 +61,8 @@ export default async function DashboardPage() {
         <h1 className="text-2xl font-bold">{t('welcome')}, {profile?.full_name || ''}</h1>
         <p className="text-sm text-slate-500">{fmtDate(new Date(), locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
       </div>
+
+      <Announcements role={profile?.role ?? 'patient'} />
 
       {/* stat tiles */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

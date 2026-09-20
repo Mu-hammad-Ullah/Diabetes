@@ -133,3 +133,14 @@ Security:
 - Password field-এ show/hide (👁) icon — `src/components/password-input.tsx`; login, signup, password change তিন জায়গায়
 - Responsive যাচাই (Playwright + system Chrome, iPhone SE/13, Pixel 7, iPad, 1366, 1920; light+dark; ১৪টা width × ৫ page overflow measure): **bug** — 768–1023px (tablet)-এ desktop nav overflow (176px) → nav breakpoint `md`→`lg`, 1024–1279-এ compact (px-2, username hidden)। 320px: brand এক লাইনে, unit select column fixed 7.5rem, history table min-w + nowrap। Test script: `.scratch/shots*.mjs`, `widths.mjs` (git-ignored)
 - Wide screen-এ দুপাশে বেশি ফাঁকা → container/nav/footer max-width 1024px → 1400px (`ui.tsx` Container, `nav.tsx`, `layout.tsx`), landing feature section 1152px; বড় screen-এ padding px-6/px-8
+
+## 2026-09-20 — Session 3: Super admin panel
+
+- `supabase/migration_002_admin.sql` (schema.sql-এও merge): `profiles.email` (trigger-এ auto copy + backfill + email বদলালে sync), admin-এর জন্য readings/reports/storage "admin all" policy, `announcements` table (+RLS: active গুলো সবাই পড়ে, admin সব), `admin_stats()` RPC (security definer, শুধু admin)
+- `src/lib/supabase/admin.ts` — service-role client (`SUPABASE_SECRET_KEY`, server-only); key না থাকলে null → UI-তে warning, password/block/delete disabled
+- `src/app/(app)/admin/actions.ts` — সব admin action (`requireAdmin()` guard; self role-change/block/delete blocked)
+- Pages: `/admin` (stats + নতুন user), `/admin/users` (search, role filter, pagination 25), `/admin/users/[id]` (edit, role, set password, reset link, block/unblock, delete-with-storage-cleanup, auth info), `/admin/hospitals` (+`/new`, `/[id]` edit/delete), `/admin/appointments` (filter, status select, delete), `/admin/announcements` (create/edit/toggle/delete), `/admin/doctors` (আগেরটা admin layout-এর নিচে)
+- `admin-nav.tsx` sub-nav; nav-এর অ্যাডমিন link → `/admin`
+- `components/announcements.tsx` — রোগীর dashboard ও ডাক্তার home-এ active নোটিশ (audience অনুযায়ী)
+- i18n: ~90টা নতুন key (bn/en)
+- User-এর করণীয়: migration_002 চালানো, secret key তৈরি করে `.env.local` + Vercel-এ `SUPABASE_SECRET_KEY`
